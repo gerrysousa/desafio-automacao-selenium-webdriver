@@ -1,0 +1,51 @@
+Configuração do Ambiente
+- Java
+-- Baixar e instalar o Java JDK 8
+	- https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+	- Configurar variáveis de ambiente do windows
+		- JAVA_HOME = C:\Program Files\Java\jdk1.8.0_181
+		- Path -- add o "%JAVA_HOME%\bin;"
+	
+	Testar se o java foi instalado com sucesso
+	Abrir o CMD e digitar o comando "java -version"
+	
+	Resultado Esperado
+	C:\....>java -version
+	java version "1.8.0_191"
+	Java(TM) SE Runtime Environment (build 1.8.0_191-b12)
+	Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
+
+- Eclipse
+-- Baixar e intalar o Eclipse
+	- https://www.eclipse.org/downloads/packages/release/mars/r/eclipse-ide-java-ee-developers
+
+- Github
+	- Criar um Novo repositório "projeto_nome"
+	- Executar os seguintes comandos para baixar o repositório
+		git clone https://github.com/gerrysousa/projeto_nome.git
+		cd projeto_nome
+		git checkout nome-branch
+
+- Selenium Webdriver 
+	- Baixar Selenium Webdriver para Java	
+		https://www.seleniumhq.org/download/
+		
+--------
+Criando o Projeto
+
+No Eclipse IDE, 
+	- Criar novo "projeto Maven".
+		- Selecionar pra criar projeto simples (Sem archetype)
+		- Colocar nome do Projeto
+
+- Remover J.R.E 1.5, e colocar a 1.8
+- Add Library , selecionar JRE 1.8
+
+- Se for um projeto de testes, Remover as pastas de testes, pois o projeto main será o de testes. (Propriedade>>Source>> remover pastas de testes)
+---
+
+Baixar dependencias
+- No Maven, basta colocar no arquivo POM.xml as referencias das dependencias encontradas no site do maven https://mvnrepository.com/
+
+-- Baixar dependencias do selenium Webdriver
+
