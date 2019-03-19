@@ -46,8 +46,7 @@ public class HomeTests extends BaseTests{
 		resumo = new ResumoPage();
 		gerenciar = new GerenciarPage();
 	}	
-	
-	
+		
 	@Test
 	public void acessarMinhaVisao() {
 		home.clicaBotaoMinhaVisao();
