@@ -27,33 +27,30 @@ public class LoginTests extends BaseTests{
 	}
 	
 	@Test
-	public void deveValidarLoginSemEmailESenha() throws InterruptedException{
+	public void deveValidarLoginSemUsername(){
 		login.botaoEntrar();
 		
-		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
+		Assert.assertTrue(login.verificarAlerta("Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));			
 	}
 	
 	@Test
-	public void deveValidarLoginSemEmail() throws InterruptedException{
-		login.setSenha("ssssss");
+	public void deveValidarLoginSemSenha(){
+		login.setUsername("administrator");
 		login.botaoEntrar();
 		
-		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
+		login.botaoEntrar();
+		
+		Assert.assertTrue(login.verificarAlerta("Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));			
 	}
 	
-	@Test
-	public void deveValidarLoginSemSenha() throws InterruptedException{
-		login.setUsername("avaliacao_qa_samba@sambatech.com.br");
-		login.botaoEntrar();
-		
-		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
-	}
 	
 	@Test
 	public void deveValidarLoginComSenhaInvalida() throws InterruptedException{
-		login.fazerLogin("avaliacao_qa_samba@sambatech.com.br", "errado");
+		login.setUsername("administrator");
+		login.botaoEntrar();
+		login.setSenha("errada");
 		login.botaoEntrar();
 		
-		Assert.assertTrue(login.verificarAlerta("Email ou senha incorretos."));			
+		Assert.assertTrue(login.verificarAlerta("Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));			
 	}
 }
