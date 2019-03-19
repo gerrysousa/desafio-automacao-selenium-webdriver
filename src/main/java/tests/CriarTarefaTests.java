@@ -1,5 +1,7 @@
 package tests;
 
-public class CriarTarefaTests {
+import uteis.BaseTests;
+
+public class CriarTarefaTests extends BaseTests{
 
 }

@@ -23,7 +23,7 @@ public class LoginTests extends BaseTests{
 	public void deveLogarComSucesso() throws InterruptedException{
 		login.fazerLogin("administrator", "duarte");
 		
-		Assert.assertTrue(login.verficarSeLogouComSucesso());			
+		Assert.assertTrue(login.verificarSeLogouComSucesso());			
 	}
 	
 	@Test

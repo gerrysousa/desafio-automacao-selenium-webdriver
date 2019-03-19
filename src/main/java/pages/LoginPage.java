@@ -25,8 +25,8 @@ public class LoginPage extends BasePage{
 		botaoEntrar();
 	}
 	
-	public boolean verficarSeLogouComSucesso() {
-		clicar(By.xpath("//*[@id=\"dropdown_projects_menu\"]/a"));
+	public boolean verificarSeLogouComSucesso() {
+		//clicar(By.xpath("//*[@id=\"dropdown_projects_menu\"]/a"));
 		boolean existe = getDriver().getPageSource().contains("Minha Visão");
 		
 		return	existe;
