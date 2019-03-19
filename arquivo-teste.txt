@@ -47,5 +47,11 @@ No Eclipse IDE,
 Baixar dependencias
 - No Maven, basta colocar no arquivo POM.xml as referencias das dependencias encontradas no site do maven https://mvnrepository.com/
 
--- Baixar dependencias do selenium Webdriver
+-- Baixar dependencias do selenium Webdriver (colocar no arquivo pom.xml)
+
+
+--Add External JARs
+	- junit-4.12.jar 
+	- commons-io-2.4.jar
+
 
