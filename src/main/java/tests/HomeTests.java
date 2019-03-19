@@ -32,9 +32,9 @@ public class HomeTests extends BaseTests{
 	
 	@Before
 	public void inicializaTeste() {
-		getDriver().get("https://mantis.glaucia.base2.com.br/login_page.php");
+		getDriver().get("http://192.168.99.100:8989");
 		login = new LoginPage();		
-		login.fazerLogin("administrator", "duarte");
+		login.fazerLogin("administrator", "administrator");
 		Assert.assertTrue(login.verificarSeLogouComSucesso());	
 		
 		home = new HomePage();

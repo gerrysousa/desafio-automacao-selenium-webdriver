@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 
 public class BasePage {
 
-public String getUrlBase(){
-		return "http://mantis.glaucia.base2.com.br/login_page.php";
+	public String getUrlBase(){
+		return "http://192.168.99.100:8989";
 	}
 	
 	public void escrever(By by, String texto) {

@@ -1,6 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
+import static uteis.DriverFactory.getDriver;
 
 import uteis.BasePage;
 
@@ -9,25 +9,26 @@ public class HomePage extends BasePage{
 	/*Menu Lateral*/
 	
 	public void clicaBotaoMinhaVisao() { 
-   	 clicar(By.cssSelector("#sidebar > ul > li.active > a > i"));
+		getDriver().get(getUrlBase()+"/my_view_page.php");
    }
 	public void clicaBotaoVerTarefas() { 
-   	 clicar(By.cssSelector("#sidebar > ul > li:nth-child(2) > a > span"));
+		getDriver().get(getUrlBase()+"/view_all_bug_page.php");
    }
 	public void clicaBotaoCriarTarefas() { 
-		 clicar(By.cssSelector("#sidebar > ul > li:nth-child(3) > a > span"));
+		getDriver().get(getUrlBase()+"/bug_report_page.php");
    }
 	public void clicaBotaoRegistroDeMudancas() { 
-		 clicar(By.cssSelector("#sidebar > ul > li:nth-child(4) > a > span"));
+		getDriver().get(getUrlBase()+"/changelog_page.php");
    }
 	public void clicaBotaoPlanejamento() { 
-		 clicar(By.cssSelector("#sidebar > ul > li:nth-child(5) > a > span"));
+		getDriver().get(getUrlBase()+"/roadmap_page.php");
    }
 	public void clicaBotaoResumo() { 
-		 clicar(By.cssSelector("#sidebar > ul > li:nth-child(6) > a > span"));
+		getDriver().get(getUrlBase()+"/summary_page.php");
    }
 	public void clicaBotaoGerenciar() { 
-		 clicar(By.cssSelector("#sidebar > ul > li:nth-child(7) > a > span"));
+		getDriver().get(getUrlBase()+"/manage_overview_page.php");
+		//clicar(By.cssSelector("#sidebar > ul > li:nth-child(7) > a > span"));
    }
 	
 	

@@ -26,7 +26,7 @@ public class LoginPage extends BasePage{
 	}
 	
 	public boolean verificarSeLogouComSucesso() {
-		boolean existe = getDriver().getTitle().contains("Minha Visão - MantisBT");
+		boolean existe = getDriver().getPageSource().contains("Minha Visão");//("Minha Visão - MantisBT");
 		
 		return	existe;
 	}
