@@ -5,7 +5,6 @@ import static uteis.DriverFactory.getDriver;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import pages.CriarMarcadorPage;
 import pages.CriarProjetoPage;
@@ -20,8 +19,6 @@ import pages.RegistroMudancaPage;
 import pages.ResumoPage;
 import pages.VerTarefasPage;
 import uteis.BaseTests;
-
-
 
 
 public class GerenciarTests extends BaseTests{
@@ -111,7 +108,7 @@ public class GerenciarTests extends BaseTests{
 		//Assert.assertTrue(verificar se existe categoria na tabela);				
 	}
 	
-	//driver.findElement(By.linkText("View Profile")).click()
+	//driver.findElement(By.linkText("Gerenciar Marcadores")).click()
 	
 	
 }

@@ -25,7 +25,8 @@ public class GerenciarPage extends BasePage{
 	}
 	
 	public void acessarTabGerenciarMarcadores() { 
-		getDriver().get(getUrlBase()+"/manage_tags_page.php");
+		clicar(By.linkText("Gerenciar Marcadores"));
+		//getDriver().get(getUrlBase()+"/manage_tags_page.php");
 	}
 	
 	public void acessarTabGerenciarCamposPersonalizados() { 
