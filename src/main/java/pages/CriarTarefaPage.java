@@ -64,8 +64,7 @@ public class CriarTarefaPage extends BasePage{
 
 	public void selecionarMarcador(String selecionarMarcador) {
 		Select dropdown = new Select(getDriver().findElement(By.id("tag_select")));
-		dropdown.selectByVisibleText(selecionarMarcador);	
-		
+		dropdown.selectByVisibleText(selecionarMarcador);		
 	}
 
 	public void selecionarVisibilidade(String string) {
