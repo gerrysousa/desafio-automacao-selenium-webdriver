@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import uteis.BasePage;
-
+	
 public class CriarTarefaPage extends BasePage{
 		
 	public boolean verificarSeAcessouCriarTarefa() {
@@ -73,8 +73,7 @@ public class CriarTarefaPage extends BasePage{
 	}
 
 	public void clicarBotaoNovaTarefa() {
-		clicar(By.xpath("//*[@id=\"report_bug_form\"]/div/div[2]/div[2]/input"));
-	
+		clicar(By.xpath("//*[@id=\"report_bug_form\"]/div/div[2]/div[2]/input"));	
 	}
 	
 	

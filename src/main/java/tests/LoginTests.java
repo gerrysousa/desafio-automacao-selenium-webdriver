@@ -3,7 +3,6 @@ package tests;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import pages.LoginPage;
 import uteis.BaseTests;
 import static uteis.DriverFactory.getDriver;
@@ -13,14 +12,13 @@ public class LoginTests extends BaseTests{
 	private LoginPage login;
 		
 	@Before
-	public void inicializaTeste() {
+	public void inicializaTeste(){
 		getDriver().get("http://192.168.99.100:8989");
 		login = new LoginPage();		
 	}
-	
-	
+		
 	@Test
-	public void deveLogarComSucesso() throws InterruptedException{
+	public void deveLogarComSucesso(){
 		login.fazerLogin("administrator", "administrator");
 		
 		Assert.assertTrue(login.verificarSeLogouComSucesso());			
@@ -42,10 +40,9 @@ public class LoginTests extends BaseTests{
 		
 		Assert.assertTrue(login.verificarAlerta("Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));			
 	}
-	
-	
+		
 	@Test
-	public void deveValidarLoginComSenhaInvalida() throws InterruptedException{
+	public void deveValidarLoginComSenhaInvalida(){
 		login.setUsername("administrator");
 		login.botaoEntrar();
 		login.setSenha("errada");

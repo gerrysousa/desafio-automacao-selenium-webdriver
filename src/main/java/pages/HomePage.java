@@ -2,6 +2,8 @@ package pages;
 
 import static uteis.DriverFactory.getDriver;
 
+import org.openqa.selenium.By;
+
 import uteis.BasePage;
 
 public class HomePage extends BasePage{
@@ -30,6 +32,10 @@ public class HomePage extends BasePage{
 		getDriver().get(getUrlBase()+"/manage_overview_page.php");
 		//clicar(By.cssSelector("#sidebar > ul > li:nth-child(7) > a > span"));
    }
+	public String obterUsuarioLogado() {
+		
+		return obterTexto(By.xpath("//*[@id=\"navbar-container\"]/div[2]/ul/li[3]/a/span"));
+	}
 	
 	
 	/*Metodos
