@@ -96,7 +96,6 @@ public class HomeTests extends BaseTests{
 		Assert.assertTrue(gerenciar.verificarSeAcessouGerenciar());				
 	}
 	
-	//-----------
 	@Test
 	public void acessarTarefasAtribuidasAMim() {
 		home.clicaBotaoMinhaVisao();	

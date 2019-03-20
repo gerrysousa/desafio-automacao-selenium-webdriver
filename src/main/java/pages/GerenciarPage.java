@@ -5,6 +5,7 @@ import static uteis.DriverFactory.getDriver;
 import org.openqa.selenium.By;
 
 import uteis.BasePage;
+import uteis.DriverFactory;
 
 public class GerenciarPage extends BasePage{
 	
@@ -89,6 +90,19 @@ public class GerenciarPage extends BasePage{
 	public void clicarNomeUsuario(String nomeUsuario) {
 		clicar(By.linkText(nomeUsuario));	
 		
+	}
+
+
+	public void clicarBotaoEditarCategoria(String categoriaNome) {
+		//// atualizar aqui
+		
+		clicar(By.xpath("//input[@value='20190321qQO_lPsH1rKye4KTBhidv0DSlt8ZVmIR']"));		
+	}
+
+
+	public void editarCategoriaNome(String novoNome) {
+		DriverFactory.getDriver().findElement(By.id("proj-category-name")).clear();
+		escrever(By.id("proj-category-name"), novoNome);		
 	}
 	
 	

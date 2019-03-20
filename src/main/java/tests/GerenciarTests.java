@@ -171,9 +171,7 @@ public class GerenciarTests extends BaseTests{
 		
 		Assert.assertFalse(gerenciar.existeProjetoComNome("tag 1"));
 	}
-	
-	//===============================
-	
+		
 	@Test
 	public void validarCampoNomeUsuarioObrigatorio() {
 		gerenciar.acessarTabGerenciarUsuarios();
@@ -198,6 +196,34 @@ public class GerenciarTests extends BaseTests{
 		Assert.assertTrue(gerenciar.existeProjetoComNome("Usuario Editado"));
 			
 	}
+	
+	/*===============================
+	
+	- deveAtualizarCategoriaComSucesso
+	- deveApagarCategoria
+	================================*/
+	
+	public void validarCampoNomeCategoriaObrigatorio() {
+		gerenciar.acessarTabGerenciarProjetos();
+		gerenciar.clicarBotaoAddCatergoria();
+		
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Um campo necessário 'Categoria' estava vazio. Por favor, verifique novamente suas entradas."));		
+	}
+	
+	@Test
+	public void atualizarCategoria() {
+		gerenciar.acessarTabGerenciarProjetos();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Categoria 02"));
+		
+		gerenciar.clicarBotaoEditarCategoria("Categoria 02");
+		gerenciar.editarCategoriaNome("Categoria 02 editada"); //proj-category-name
+		
+		gerenciar.acessarTabGerenciarUsuarios();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Usuario Editado"));
+			
+	}
+	
+	
 	
 	
 	
