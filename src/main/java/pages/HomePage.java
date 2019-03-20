@@ -36,6 +36,14 @@ public class HomePage extends BasePage{
 		
 		return obterTexto(By.xpath("//*[@id=\"navbar-container\"]/div[2]/ul/li[3]/a/span"));
 	}
+	public boolean projetoSelecionado(String nomeProcurado) {
+		boolean existe =  getDriver().findElement(By.className("dropdown-toggle")).getText().contains(nomeProcurado); //getPageSource().contains(nomeProcurado);
+		
+		return existe;
+	}
+	public void selecionarDropDownProjetos(String nomeProjeto) {
+		clicar(By.linkText(nomeProjeto));	
+	}
 	
 	
 	/*Metodos

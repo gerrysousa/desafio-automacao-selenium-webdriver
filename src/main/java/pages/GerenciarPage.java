@@ -69,6 +69,18 @@ public class GerenciarPage extends BasePage{
 	public void clicarBotaoAddMarcador() {
 		getDriver().get(getUrlBase()+"/manage_tags_page.php#tagcreate");	
 	}
+
+
+	public void clicarNomeProjeto(String nomeProjeto) {
+		clicar(By.linkText(nomeProjeto));		
+	}
+
+
+	public boolean existeProjetoComNome(String nomeProcurado) {
+		boolean existe =  getDriver().getPageSource().contains(nomeProcurado);
+		
+		return existe;
+	}
 	
 	
 	

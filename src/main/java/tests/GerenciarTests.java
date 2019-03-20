@@ -107,8 +107,38 @@ public class GerenciarTests extends BaseTests{
 		
 		//Assert.assertTrue(verificar se existe categoria na tabela);				
 	}
+	//===============================
+		
+	@Test
+	public void validarCampoNomeProjetoObrigatorio() {
+		gerenciar.acessarTabGerenciarProjetos();
+		gerenciar.clicarBotaoCriarProjeto();
+		novoProjeto.setDescricaoProjeto("Descrição 01");		
+		novoProjeto.clicarBotaoAddProjeto();
+		
+		Assert.assertEquals("Preencha este campo.", novoProjeto.validarCamposObrigatorio());
+	}
 	
-	//driver.findElement(By.linkText("Gerenciar Marcadores")).click()
+	@Test
+	public void atualizarNomeDoProjeto() {
+		gerenciar.acessarTabGerenciarProjetos();
+		gerenciar.clicarNomeProjeto("Projeto 02");
+		
+		novoProjeto.setNomeProjeto("Projeto 02 Editado");
+		novoProjeto.clicarBotaoEditarProjeto();
+		
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Projeto 02 Editado"));
+	}
 	
+	@Test
+	public void mudarDeProjeto() {
+		gerenciar.acessarTabGerenciarProjetos();
+		Assert.assertTrue(home.projetoSelecionado("Projeto 01"));		
+		home.selecionarDropDownProjetos("Projeto 02 Editado");
+		
+		Assert.assertTrue(home.projetoSelecionado("Projeto 02 Editado"));
+	}
+	
+
 	
 }

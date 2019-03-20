@@ -112,8 +112,7 @@ public class HomeTests extends BaseTests{
 		Assert.assertTrue(verTarefas.verificarSeAcessouVerTarefasPage());
 		minhaVisao.acessarTarefasNaoAtribuidas();
 		
-		Assert.assertEquals("nenhum", verTarefas.verificaFiltroAtribuidoA());
-		
+		Assert.assertEquals("nenhum", verTarefas.verificaFiltroAtribuidoA());		
 	}
 	
 	@Test
@@ -149,7 +148,7 @@ public class HomeTests extends BaseTests{
 		Assert.assertTrue(minhaVisao.verificarSeAcessouMinhaVisao());
 		minhaVisao.acessarTarefasMonitoradasPorMim();
 		
-		Assert.assertEquals(home.obterUsuarioLogado() , verTarefas.verificaFiltroMonitoradoPor());		
+		Assert.assertEquals(home.obterUsuarioLogado() , verTarefas.verificaFiltroMonitoradoPor());	
 	}
 	
 
