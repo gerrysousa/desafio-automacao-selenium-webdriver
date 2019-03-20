@@ -107,7 +107,6 @@ public class GerenciarTests extends BaseTests{
 		
 		//Assert.assertTrue(verificar se existe categoria na tabela);				
 	}
-	//===============================
 		
 	@Test
 	public void validarCampoNomeProjetoObrigatorio() {
@@ -122,8 +121,7 @@ public class GerenciarTests extends BaseTests{
 	@Test
 	public void atualizarNomeDoProjeto() {
 		gerenciar.acessarTabGerenciarProjetos();
-		gerenciar.clicarNomeProjeto("Projeto 02");
-		
+		gerenciar.clicarNomeProjeto("Projeto 02");		
 		novoProjeto.setNomeProjeto("Projeto 02 Editado");
 		novoProjeto.clicarBotaoEditarProjeto();
 		
@@ -138,7 +136,70 @@ public class GerenciarTests extends BaseTests{
 		
 		Assert.assertTrue(home.projetoSelecionado("Projeto 02 Editado"));
 	}
+		
 	
-
+	@Test
+	public void validarCampoNomeMarcadorObrigatorio() {
+		gerenciar.acessarTabGerenciarMarcadores();
+		gerenciar.clicarBotaoAddMarcador();
+		//novoMarcador.setNomeMarcador("Marcador 02");
+		novoMarcador.setDescricaoMarcador("Descricao 02");
+		novoMarcador.clicarBotaoAddMarcador();
+		
+		Assert.assertEquals("Preencha este campo.", novoMarcador.validarCamposObrigatorio());
+	}
+	
+	@Test
+	public void atualizarNomeDoMarcador() {
+		gerenciar.acessarTabGerenciarMarcadores();
+		gerenciar.clicarNomeMarcador("Marcador 02");
+		novoMarcador.clicarBotaoEditarMarcador();
+		novoMarcador.setNomeMarcador("Marcador 02 Editado");
+		novoMarcador.clicarBotaoAtualizarMarcador();
+		
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Marcador 02 Editado"));
+	}
+	
+	@Test
+	public void deveApagarMarcador() {
+		gerenciar.acessarTabGerenciarMarcadores();
+		gerenciar.clicarNomeMarcador("tag 1");
+		novoMarcador.clicarBotaoExcluirMarcador();
+		
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Você tem certeza que quer apagar esse marcador?"));
+		novoMarcador.clicarConfirmarExclusao();
+		
+		Assert.assertFalse(gerenciar.existeProjetoComNome("tag 1"));
+	}
+	
+	//===============================
+	
+	@Test
+	public void validarCampoNomeUsuarioObrigatorio() {
+		gerenciar.acessarTabGerenciarUsuarios();
+		gerenciar.clicarBotaoCriarNovaContaUsuario();
+		//novoMarcador.setNomeMarcador("Marcador 02");
+		novoUsuario.setNomeUsuario("Fulano User");
+		novoUsuario.clicarBotaoAddUsuario();
+		
+		Assert.assertTrue(novoUsuario.validarCamposObrigatorio("Nomes de usuário podem conter apenas letras, números, espaços, hífens, pontos, sinais de mais e sublinhados."));		
+	}
+	
+	@Test
+	public void atualizarUsuario() {
+		gerenciar.acessarTabGerenciarUsuarios();
+		gerenciar.clicarNomeUsuario("Usuario Atualizador");
+		novoUsuario.editarUserName("Usuario Editado");
+		novoUsuario.clicarBotaoAtualizarUsuario();
+		
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Operação realizada com sucesso."));
+		
+		gerenciar.acessarTabGerenciarUsuarios();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Usuario Editado"));
+			
+	}
+	
+	
+	
 	
 }

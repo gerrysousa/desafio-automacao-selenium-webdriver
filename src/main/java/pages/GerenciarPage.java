@@ -81,6 +81,15 @@ public class GerenciarPage extends BasePage{
 		
 		return existe;
 	}
+
+	public void clicarNomeMarcador(String nomeMarcador) {
+		clicar(By.linkText(nomeMarcador));		
+	}
+
+	public void clicarNomeUsuario(String nomeUsuario) {
+		clicar(By.linkText(nomeUsuario));	
+		
+	}
 	
 	
 	
