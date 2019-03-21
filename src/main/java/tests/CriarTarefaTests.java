@@ -39,7 +39,7 @@ public class CriarTarefaTests extends BaseTests{
 	public void inicializaTeste() {
 		getDriver().get(getUrlBase());
 		login = new LoginPage();		
-		login.fazerLogin("administrator", "duarte");
+		login.usarLoginPadrao();
 		Assert.assertTrue(login.verificarSeLogouComSucesso());	
 		
 		home = new HomePage();
@@ -77,5 +77,46 @@ public class CriarTarefaTests extends BaseTests{
 		novaTarefa.clicarBotaoNovaTarefa();
 		//Assert.assertTrue(verificar se existe categoria na tabela);				
 	}
+	
+	@Test
+	public void validarCampoResumoObrigatorio() {
+		novaTarefa.clicarBotaoNovaTarefa();
+		
+		Assert.assertEquals("Preencha este campo.", novoProjeto.validarCampoResumoObrigatorio());			
+	}
+	
+	@Test
+	public void validarCampoDescricaoObrigatorio() {
+		novaTarefa.clicarBotaoNovaTarefa();
+		novaTarefa.setResumo("resumo da tarefa");
+		
+		Assert.assertEquals("Preencha este campo.", novoProjeto.validarCampoDescricaoObrigatorio());			
+	}
+	
+	
+	
+	/*===============================
+	Tarefa 
+	- validarCategoriaObrigatorio
+	- validarCampoResumoObrigatorio
+	- alidarCampoDescricaoObrigatorio
+	- atualizarResumoTarefaComSucesso
+	- atualizarStatusTarefaParaAdmitido
+	- addUmNovoMarcadorATarefa
+	- atribuirTarefa
+	- clonarTarefa
+	- apagarTarefa
+	- monitorarUmaTarefa
+	- marcarTarefaComoPegajosa
+	- moverTarefaDeProjeto
+	- fecharTarefa (status= Não será corrigido)
+	- resolverTarefa
+	- acesarImprimirTarefas
+	- salvarNovoFiltro
+
+
+		================================*/	
+	
+	
 	
 }

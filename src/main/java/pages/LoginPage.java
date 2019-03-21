@@ -47,4 +47,11 @@ public class LoginPage extends BasePage{
 	public void clicarPerdeuASenha() {
 		clicar(By.linkText("Perdeu a sua senha?"));		
 	}
+	
+	public void usarLoginPadrao() {
+		setUsername("adminitrator");
+		botaoEntrar();
+		setSenha("adminitrator");
+		botaoEntrar();
+	}
 }

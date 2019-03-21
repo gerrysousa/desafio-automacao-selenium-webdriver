@@ -34,7 +34,7 @@ public class HomeTests extends BaseTests{
 	public void inicializaTeste() {
 		getDriver().get(getUrlBase());
 		login = new LoginPage();		
-		login.fazerLogin("administrator", "administrator");
+		login.usarLoginPadrao();
 		Assert.assertTrue(login.verificarSeLogouComSucesso());	
 		
 		home = new HomePage();

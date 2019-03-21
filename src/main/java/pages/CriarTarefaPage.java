@@ -73,7 +73,7 @@ public class CriarTarefaPage extends BasePage{
 	}
 
 	public void clicarBotaoNovaTarefa() {
-		clicar(By.xpath("//*[@id=\"report_bug_form\"]/div/div[2]/div[2]/input"));	
+		clicar(By.xpath("//input[@value='Criar Nova Tarefa']"));	
 	}
 	
 	
