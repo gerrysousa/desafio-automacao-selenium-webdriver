@@ -58,6 +58,73 @@ Baixar dependencias
 
 
 
+acessarMinhaVisao
+acessarVerTarefas
+acessarCriarTarefas
+acessarRegistroMudanca
+acessarPlanejamento
+acessarResumo
+acessarGerenciar
+adicionarCategoria
+adicionarProjeto
+adicionarUsuario
+adicionarMarcadores
+adicionarTarefa
+deveLogarComSucesso
+deveValidarLoginSemUsername
+deveValidarLoginSemSenha
+deveValidarLoginComSenhaInvalida
+acessarTarefasAtribuidasAMim
+acessarTarefasNaoAtribuidas
+acessarTarefasRelatadasPorMim 
+acessarTarefasResolvidas
+acessarTarefasModificadasRecente
+acessarTarefasMonitoradasPorMim
+deveValidarCampoNomeProjetoObrigatorio
+deveAtualizarProjetoComSucesso
+deveMudarDeProjeto
+deveValidarCampoNomeProjetoObrigatorio
+deveAtualizarMarcadorComSucesso
+deveApagarMarcador
+deveValidarCampoNomeUsuarioObrigatorio
+deveAtualizarUsuarioComSucesso
+deveValidarCampoNomeCategoriaObrigatorio
+deveAtualizarCategoriaComSucesso
+deveApagarCategoria
+
+------
+Tarefa 
+- deveValidarCategoriaObrigatorio
+- deveValidarCampoResumoObrigatorio
+- deveValidarCampoDescricaoObrigatorio
+- deveAtualizarResumoTarefaComSucesso
+- deveAtualizarStatusTarefaParaAdmitido
+- deveAddUmNovoMarcadorATarefa
+- deveAtribuirTarefa
+- deveClonarTarefa
+- deveApagarTarefa
+- deveMonitorarUmaTarefa
+- deveMarcarTarefaComoPegajosa
+- deveMoverTarefaDeProjeto
+- deveFecharTarefa (status= Não será corrigido)
+- deveResolverTarefa
+- deveAcesarImprimirTarefas
+- deveSalvarNovoFiltro
+
+
+Categoria
+
+Perfis Globais
+- deveValidarCampoNomePlataformaObrigatorio
+- deveValidarCampoNomeSOObrigatorio
+- deveValidarCampoNomeVersaoSOObrigatorio
+
+
+Login
+- deveAcessarOpcaoRecuperarSenha
+
+
+
 
 
 
