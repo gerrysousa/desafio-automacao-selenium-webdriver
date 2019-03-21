@@ -110,6 +110,16 @@ public class GerenciarPage extends BasePage{
 	public void clicarAtualizarCategoria() {
 		clicar(By.xpath("//input[@value='Atualizar Categoria']"));		
 	}
+
+
+	public void clicarBotaoApagarCategoria(String categoriaNome) {
+		clicar(By.xpath("//td[contains(text(),'"+categoriaNome+"')]/following-sibling::td[2]//button[text()='Apagar']"));		
+	}
+
+
+	public void clicarApagarCategoria() {
+		clicar(By.xpath("//input[@value='Apagar Categoria']"));			
+	}
 	
 	
 	

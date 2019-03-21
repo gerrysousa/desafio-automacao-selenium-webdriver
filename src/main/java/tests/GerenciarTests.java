@@ -222,10 +222,20 @@ public class GerenciarTests extends BaseTests{
 		
 		gerenciar.acessarTabGerenciarProjetos();
 		Assert.assertTrue(gerenciar.existeProjetoComNome("Categoria 02 editada"));
-			
 	}
 	
-	
+	@Test
+	public void apagarCategoria() {
+		gerenciar.acessarTabGerenciarProjetos();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("xxxxxx"));
+		
+		gerenciar.clicarBotaoApagarCategoria("xxxxxx");
+		gerenciar.clicarApagarCategoria();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Operação realizada com sucesso."));
+		
+		gerenciar.acessarTabGerenciarProjetos();
+		Assert.assertFalse(gerenciar.existeProjetoComNome("xxxxxx"));
+	}
 	
 	
 	
