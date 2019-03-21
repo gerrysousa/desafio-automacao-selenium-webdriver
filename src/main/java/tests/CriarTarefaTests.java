@@ -37,9 +37,9 @@ public class CriarTarefaTests extends BaseTests{
 	
 	@Before
 	public void inicializaTeste() {
-		getDriver().get("http://192.168.99.100:8989");
+		getDriver().get(getUrlBase());
 		login = new LoginPage();		
-		login.fazerLogin("administrator", "administrator");
+		login.fazerLogin("administrator", "duarte");
 		Assert.assertTrue(login.verificarSeLogouComSucesso());	
 		
 		home = new HomePage();

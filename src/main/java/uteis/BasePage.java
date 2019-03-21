@@ -7,7 +7,8 @@ import org.openqa.selenium.By;
 public class BasePage {
 
 	public String getUrlBase(){
-		return "http://192.168.99.100:8989";
+		//return "http://192.168.99.100:8989";
+		return BaseTests.getUrlBase();
 	}
 	
 	public void escrever(By by, String texto) {

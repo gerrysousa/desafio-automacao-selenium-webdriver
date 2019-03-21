@@ -38,9 +38,9 @@ public class GerenciarTests extends BaseTests{
 	
 	@Before
 	public void inicializaTeste() {
-		getDriver().get("http://192.168.99.100:8989");
+		getDriver().get(getUrlBase());
 		login = new LoginPage();		
-		login.fazerLogin("administrator", "administrator");
+		login.fazerLogin("administrator", "duarte");
 		Assert.assertTrue(login.verificarSeLogouComSucesso());	
 		
 		home = new HomePage();
@@ -213,13 +213,15 @@ public class GerenciarTests extends BaseTests{
 	@Test
 	public void atualizarCategoria() {
 		gerenciar.acessarTabGerenciarProjetos();
-		Assert.assertTrue(gerenciar.existeProjetoComNome("Categoria 02"));
+		Assert.assertTrue(gerenciar.existeProjetoComNome("cat02"));
 		
-		gerenciar.clicarBotaoEditarCategoria("Categoria 02");
+		gerenciar.clicarBotaoEditarCategoria("cat02");
 		gerenciar.editarCategoriaNome("Categoria 02 editada"); //proj-category-name
+		gerenciar.clicarAtualizarCategoria();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Operação realizada com sucesso."));
 		
-		gerenciar.acessarTabGerenciarUsuarios();
-		Assert.assertTrue(gerenciar.existeProjetoComNome("Usuario Editado"));
+		gerenciar.acessarTabGerenciarProjetos();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Categoria 02 editada"));
 			
 	}
 	

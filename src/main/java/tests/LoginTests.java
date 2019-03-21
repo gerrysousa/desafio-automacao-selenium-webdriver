@@ -12,8 +12,8 @@ public class LoginTests extends BaseTests{
 	private LoginPage login;
 		
 	@Before
-	public void inicializaTeste(){
-		getDriver().get("http://192.168.99.100:8989");
+	public void inicializaTeste(){		
+		getDriver().get(getUrlBase());
 		login = new LoginPage();		
 	}
 		

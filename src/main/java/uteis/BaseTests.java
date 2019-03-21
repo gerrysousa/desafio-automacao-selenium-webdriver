@@ -14,6 +14,11 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class BaseTests {
 
+	public static String getUrlBase(){
+		//return "http://192.168.99.100:8989";
+		return "https://mantis.glaucia.base2.com.br";
+	}
+	
 	@Rule
 	public TestName testName = new TestName();	
 	
