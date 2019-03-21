@@ -237,7 +237,14 @@ public class GerenciarTests extends BaseTests{
 		Assert.assertFalse(gerenciar.existeProjetoComNome("xxxxxx"));
 	}
 	
-	
+	@Test
+	public void validarApagarCategoriaJaUtilizada() {
+		gerenciar.acessarTabGerenciarProjetos();
+		Assert.assertTrue(gerenciar.existeProjetoComNome("xxxxxx"));
+		gerenciar.clicarBotaoApagarCategoria("xxxxxx");
+		
+		Assert.assertTrue(gerenciar.existeProjetoComNome("Categoria \"categoria1990\" não pode ser deletada, pois está associada com outro ou mais problemas."));
+	}
 	
 	
 }
