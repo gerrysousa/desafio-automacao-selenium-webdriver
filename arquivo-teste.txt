@@ -91,6 +91,11 @@ deveAtualizarUsuarioComSucesso
 deveValidarCampoNomeCategoriaObrigatorio
 deveAtualizarCategoriaComSucesso
 deveApagarCategoria
+adicionarPerfilGlobal
+deveValidarCampoNomePlataformaObrigatorio
+deveValidarCampoNomeSOObrigatorio
+deveValidarCampoNomeVersaoSOObrigatorio
+deveAcessarOpcaoRecuperarSenha
 
 ------
 Tarefa 
@@ -111,17 +116,6 @@ Tarefa
 - deveAcesarImprimirTarefas
 - deveSalvarNovoFiltro
 
-
-Categoria
-
-Perfis Globais
-- deveValidarCampoNomePlataformaObrigatorio
-- deveValidarCampoNomeSOObrigatorio
-- deveValidarCampoNomeVersaoSOObrigatorio
-
-
-Login
-- deveAcessarOpcaoRecuperarSenha
 
 
 

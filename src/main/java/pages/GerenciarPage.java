@@ -66,16 +66,13 @@ public class GerenciarPage extends BasePage{
 		getDriver().get(getUrlBase()+"/manage_user_create_page.php");
 	}
 
-
 	public void clicarBotaoAddMarcador() {
 		getDriver().get(getUrlBase()+"/manage_tags_page.php#tagcreate");	
 	}
 
-
 	public void clicarNomeProjeto(String nomeProjeto) {
 		clicar(By.linkText(nomeProjeto));		
 	}
-
 
 	public boolean existeProjetoComNome(String nomeProcurado) {
 		boolean existe =  getDriver().getPageSource().contains(nomeProcurado);
@@ -92,7 +89,6 @@ public class GerenciarPage extends BasePage{
 		
 	}
 
-
 	public void clicarBotaoEditarCategoria(String categoriaNome) {
 		//// atualizar aqui //td[contains(text(),"cat01")]/following-sibling::td[2]//button[text()='Alterar']
 		//clicar(By.xpath("//input[@value='20190321qQO_lPsH1rKye4KTBhidv0DSlt8ZVmIR']"));
@@ -100,22 +96,18 @@ public class GerenciarPage extends BasePage{
 		clicar(By.xpath("//td[contains(text(),'"+categoriaNome+"')]/following-sibling::td[2]//button[text()='Alterar']"));
 	}
 
-
 	public void editarCategoriaNome(String novoNome) {
 		DriverFactory.getDriver().findElement(By.id("proj-category-name")).clear();
 		escrever(By.id("proj-category-name"), novoNome);		
 	}
 
-
 	public void clicarAtualizarCategoria() {
 		clicar(By.xpath("//input[@value='Atualizar Categoria']"));		
 	}
 
-
 	public void clicarBotaoApagarCategoria(String categoriaNome) {
 		clicar(By.xpath("//td[contains(text(),'"+categoriaNome+"')]/following-sibling::td[2]//button[text()='Apagar']"));		
 	}
-
 
 	public void clicarApagarCategoria() {
 		clicar(By.xpath("//input[@value='Apagar Categoria']"));			

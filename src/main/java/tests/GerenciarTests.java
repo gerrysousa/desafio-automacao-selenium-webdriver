@@ -11,6 +11,7 @@ import pages.CriarProjetoPage;
 import pages.CriarTarefaPage;
 import pages.CriarUsuarioPage;
 import pages.GerenciarPage;
+import pages.GerenciarPerfilGlobalPage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.MinhaVisaoPage;
@@ -35,12 +36,13 @@ public class GerenciarTests extends BaseTests{
 	private CriarProjetoPage novoProjeto;
 	private CriarUsuarioPage novoUsuario;
 	private CriarMarcadorPage novoMarcador;
+	private GerenciarPerfilGlobalPage novoPerfilGlobal;
 	
 	@Before
 	public void inicializaTeste() {
 		getDriver().get(getUrlBase());
 		login = new LoginPage();		
-		login.fazerLogin("administrator", "duarte");
+		login.fazerLogin("administrator", "administrator");
 		Assert.assertTrue(login.verificarSeLogouComSucesso());	
 		
 		home = new HomePage();
@@ -54,6 +56,7 @@ public class GerenciarTests extends BaseTests{
 		novoProjeto = new CriarProjetoPage();
 		novoUsuario = new CriarUsuarioPage();
 		novoMarcador = new CriarMarcadorPage();
+		novoPerfilGlobal = new GerenciarPerfilGlobalPage();
 		
 		home.clicaBotaoGerenciar();		
 		Assert.assertTrue(gerenciar.verificarSeAcessouGerenciar());	
@@ -96,7 +99,6 @@ public class GerenciarTests extends BaseTests{
 		//Assert.assertTrue(verificar se existe categoria na tabela);				
 	}
 	
-	
 	@Test
 	public void adicionarMarcadores() {
 		gerenciar.acessarTabGerenciarMarcadores();
@@ -136,7 +138,6 @@ public class GerenciarTests extends BaseTests{
 		
 		Assert.assertTrue(home.projetoSelecionado("Projeto 02 Editado"));
 	}
-		
 	
 	@Test
 	public void validarCampoNomeMarcadorObrigatorio() {
@@ -197,12 +198,7 @@ public class GerenciarTests extends BaseTests{
 			
 	}
 	
-	/*===============================
-	
-	- deveAtualizarCategoriaComSucesso
-	- deveApagarCategoria
-	================================*/
-	
+	@Test
 	public void validarCampoNomeCategoriaObrigatorio() {
 		gerenciar.acessarTabGerenciarProjetos();
 		gerenciar.clicarBotaoAddCatergoria();
@@ -246,5 +242,46 @@ public class GerenciarTests extends BaseTests{
 		Assert.assertTrue(gerenciar.existeProjetoComNome("Categoria \"categoria1990\" não pode ser deletada, pois está associada com outro ou mais problemas."));
 	}
 	
+	@Test
+	public void adicionarPerfilGlobal() {
+		gerenciar.acessarTabGerenciarPerfisGlobais();
+		novoPerfilGlobal.setNomePlataforma("Plataforma 01");
+		novoPerfilGlobal.setSO("Android");
+		novoPerfilGlobal.setVersaoSO("8.1.0");
+		novoPerfilGlobal.setNomeDescricao("Descriçao 010");		
+		novoPerfilGlobal.clicarAdicionarPerfil();
+		
+		Assert.assertTrue(novoPerfilGlobal.existeNome("Plataforma 01"));			
+	}
+		
+	@Test
+	public void validarCampoPlataformaObrigatorio() {
+		gerenciar.acessarTabGerenciarPerfisGlobais();
+		novoPerfilGlobal.clicarAdicionarPerfil();
+		
+		Assert.assertEquals("Preencha este campo.", novoPerfilGlobal.validarCampoPlataformaObrigatorio());			
+	}
 	
+	@Test
+	public void validarCampoSOObrigatorio() {
+		gerenciar.acessarTabGerenciarPerfisGlobais();
+		novoPerfilGlobal.setNomePlataforma("Plataforma 01");
+		novoPerfilGlobal.clicarAdicionarPerfil();
+		
+		Assert.assertEquals("Preencha este campo.", novoPerfilGlobal.validarCampoSOObrigatorio());			
+	}
+	
+	@Test
+	public void validarCampoVersaoSOObrigatorio() {
+		gerenciar.acessarTabGerenciarPerfisGlobais();
+		novoPerfilGlobal.setNomePlataforma("Plataforma 02");
+		novoPerfilGlobal.setSO("Android Kit Kat");
+		novoPerfilGlobal.clicarAdicionarPerfil();
+		
+		Assert.assertEquals("Preencha este campo.", novoPerfilGlobal.validarCampoVersaoSOObrigatorio());			
+	}
+	
+	/*===============================
+
+	================================*/	
 }

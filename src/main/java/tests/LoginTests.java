@@ -50,4 +50,14 @@ public class LoginTests extends BaseTests{
 		
 		Assert.assertTrue(login.verificarAlerta("Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));			
 	}
+	
+	@Test
+	public void deveAcessarRecuperarSenha(){
+		login.setUsername("administrator");
+		login.botaoEntrar();
+		login.clicarPerdeuASenha();
+				
+		Assert.assertTrue(login.verificarAcessouRecuperarSenha());				
+	}
+
 }

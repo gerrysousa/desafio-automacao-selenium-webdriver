@@ -36,4 +36,15 @@ public class LoginPage extends BasePage{
 		
 		return	existe;
 	}
+
+	public boolean verificarAcessouRecuperarSenha() {
+		//i[@class='ace-icon fa fa-key']
+		boolean existe = getDriver().getPageSource().contains("Reajuste de Senha");
+		
+		return	existe;
+	}
+
+	public void clicarPerdeuASenha() {
+		clicar(By.linkText("Perdeu a sua senha?"));		
+	}
 }
