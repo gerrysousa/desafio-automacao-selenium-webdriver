@@ -62,14 +62,6 @@ public class CriarTarefaTests extends BaseTests{
 		
 	@Test
 	public void adicionarTarefa() {
-		String test = ConexaoBD.statusConection();
-		 
-		 ConexaoBD.getConexaoMySQL();
-		 
-		 String test2 = ConexaoBD.statusConection();
-		 
-	System.out.print(test);
-	System.out.print(test2);
 		novaTarefa.selecionarCategoria("[Todos os Projetos] General");
 		novaTarefa.selecionarFrequencia("sempre");
 		novaTarefa.selecionarGravidade("texto");

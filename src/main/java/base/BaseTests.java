@@ -18,8 +18,8 @@ import uteis.ConexaoBD;
 public class BaseTests {
 
 	public static String getUrlBase(){
-		ConexaoBD.executaQuery("fdfd");
-		
+		ConexaoBD.selecionaTodosProjetos();
+		ConexaoBD.executeSql("UPDATE `bugtracker`.`mantis_project_table` SET `description` = ' update descria' WHERE (`id` = '2');");
 		
 		return "http://192.168.99.100:8989";
 		//return "https://mantis.glaucia.base2.com.br";

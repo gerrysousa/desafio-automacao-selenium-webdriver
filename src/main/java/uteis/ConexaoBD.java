@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import uteis.objetos.ProjetoObj;
 
 public class ConexaoBD {
 
@@ -18,17 +22,13 @@ public class ConexaoBD {
       public static java.sql.Connection getConexaoMySQL() {
     	  
     	  Connection connection = null; //atributo do tipo Connection
-    	  try {
-    		  //Carregando o JDBC Driver padrão
-    		  String driverName = "com.mysql.jdbc.Driver";                        
-    		  Class.forName(driverName);
+    	  try { //Carregando o JDBC Driver padrão
+    		  Class.forName(Constantes.driverBD);
 				
     		  //Configurando a nossa conexão com um banco de dados//
-			  String serverName = "localhost:3306";    //caminho do servidor do BD
-			  String mydatabase ="bugtracker";        //nome do seu banco de dados
-			  String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
-			  String username = "root";        //nome de um usuário de seu BD      
-			  String password = "root";      //sua senha de acesso
+			  String url = Constantes.url;
+			  String username = Constantes.username;        //nome de um usuário de seu BD      
+			  String password = Constantes.password;      //sua senha de acesso
 			  
 		      connection = DriverManager.getConnection(url, username, password);
 		      //Testa sua conexão//  
@@ -72,33 +72,75 @@ public class ConexaoBD {
 	      return ConexaoBD.getConexaoMySQL();
 	  }
 //==================================
-	  /*
-	   *    String url = "jdbc:msql://200.210.220.1:1114/Demo";
-            Connection conn = DriverManager.getConnection(url,"","");
-            Statement stmt = conn.createStatement();
-            ResultSet rs;
-  	  */
+
 	  
-	    public static void executaQuery(String query) {
-	        try {
-	        	Connection conn = getConexaoMySQL();
-	            Statement stmt = conn.createStatement();
-	            ResultSet rs;
-	 
-	            rs = stmt.executeQuery("SELECT * FROM bugtracker.mantis_project_table;");
-	            while ( rs.next() ) {
-	                String nomeProjeto = rs.getString("name");
-	                String descricaoProjeto = rs.getString("description");	                
-	            }
-	            conn.close();
-	        } catch (Exception e) {
-	            System.err.println("Got an exception! ");
-	            System.err.println(e.getMessage());
-	        }
-	    }
-	  
-	  
+	    @SuppressWarnings("finally")
+		public static List selecionaTodosProjetos()
+		{
+	    	String selectSql = "SELECT * FROM bugtracker.mantis_project_table;"; 
+			List projetos = new ArrayList();
+			Connection conn = null;
+			Statement stmt = null;
+			try
+			{		
+				conn = getConexaoMySQL();
+				stmt = conn.createStatement();
+				ResultSet result = stmt.executeQuery(selectSql);
+				
+				if(result!=null)
+				{
+					while(result.next())
+					{
+						int projetoId = result.getInt("id");					
+						String nomeProjeto = result.getString("name");
+		                String descricaoProjeto = result.getString("description");
+
+						ProjetoObj projeto = new ProjetoObj();
+						projeto.setId(projetoId);
+						projeto.setName(nomeProjeto);
+						projeto.setdescrition(descricaoProjeto);
+						
+						projetos.add(projeto);
+						System.out.println(projeto.getId()+"," + projeto.getName()+"," + projeto.geDescrition());
+					}
+				}				
+				System.out.println("Execute sql successfuly, " + selectSql);
+			}
+			catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				ConexaoBD.FecharConexao();
+				return projetos;
+			}			
+		}
+	    
+	    public static void executeSql(String sql)
+		{
+	    	Connection conn = null;
+			Statement stmt = null;
+			try
+			{
+				conn = getConexaoMySQL();
+				stmt = conn.createStatement();				
+				/* The method can execute insert, update and delete dml command. */
+				stmt.execute(sql);				
+				System.out.println("Execute sql successfuly, " + sql);
+			}
+			catch(Exception ex){
+				ex.printStackTrace();
+			}
+			finally{
+				ConexaoBD.FecharConexao();
+			}
+		}
+	    
+	    
 	  
 	  
 	  
 }
+
+
