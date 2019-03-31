@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPage;
-import uteis.BaseTests;
-import static uteis.DriverFactory.getDriver;
+import base.BaseTests;
+import static base.DriverFactory.getDriver;
 
 public class LoginTests extends BaseTests{
 	

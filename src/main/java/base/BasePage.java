@@ -1,6 +1,6 @@
-package uteis;
+package base;
 
-import static uteis.DriverFactory.getDriver;
+import static base.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
 

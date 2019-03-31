@@ -1,6 +1,6 @@
 package tests;
 
-import uteis.BaseTests;
+import base.BaseTests;
 
 public class RegistroMudançasTests extends BaseTests{
 

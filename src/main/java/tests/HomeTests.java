@@ -1,6 +1,6 @@
 package tests;
 
-import static uteis.DriverFactory.getDriver;
+import static base.DriverFactory.getDriver;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,7 +15,7 @@ import pages.PlanejamentoPage;
 import pages.RegistroMudancaPage;
 import pages.ResumoPage;
 import pages.VerTarefasPage;
-import uteis.BaseTests;
+import base.BaseTests;
 
 public class HomeTests extends BaseTests{
 

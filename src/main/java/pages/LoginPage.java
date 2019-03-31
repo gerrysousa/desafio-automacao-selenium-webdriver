@@ -1,8 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import uteis.BasePage;
-import static uteis.DriverFactory.getDriver;
+import base.BasePage;
+import static base.DriverFactory.getDriver;
 
 public class LoginPage extends BasePage{
 	

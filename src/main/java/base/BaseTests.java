@@ -1,4 +1,4 @@
-package uteis;
+package base;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,9 +12,15 @@ import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import uteis.ConexaoBD;
+
+
 public class BaseTests {
 
 	public static String getUrlBase(){
+		ConexaoBD.executaQuery("fdfd");
+		
+		
 		return "http://192.168.99.100:8989";
 		//return "https://mantis.glaucia.base2.com.br";
 	}

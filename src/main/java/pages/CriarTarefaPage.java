@@ -1,11 +1,11 @@
 package pages;
 
-import static uteis.DriverFactory.getDriver;
+import static base.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
-import uteis.BasePage;
+import base.BasePage;
 	
 public class CriarTarefaPage extends BasePage{
 		

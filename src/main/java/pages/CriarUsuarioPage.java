@@ -1,12 +1,12 @@
 package pages;
 
-import static uteis.DriverFactory.getDriver;
+import static base.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import uteis.BasePage;
-import uteis.DriverFactory;
+import base.BasePage;
+import base.DriverFactory;
 
 public class CriarUsuarioPage extends BasePage{
 

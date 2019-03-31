@@ -1,8 +1,8 @@
 package pages;
 
-import static uteis.DriverFactory.getDriver;
+import static base.DriverFactory.getDriver;
 
-import uteis.BasePage;
+import base.BasePage;
 
 public class ResumoPage extends BasePage{
 	

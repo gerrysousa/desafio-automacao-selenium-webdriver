@@ -1,10 +1,10 @@
 package pages;
 
-import static uteis.DriverFactory.getDriver;
+import static base.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
 
-import uteis.BasePage;
+import base.BasePage;
 
 public class HomePage extends BasePage{
 
