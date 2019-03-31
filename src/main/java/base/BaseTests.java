@@ -18,12 +18,8 @@ import uteis.ConexaoBD;
 public class BaseTests {
 
 	public static String getUrlBase() {
-		ConexaoBD.selecionaTodosProjetos();
-		ConexaoBD.executeSql("UPDATE `bugtracker`.`mantis_project_table` SET `description` = ' update descria' WHERE (`id` = '2');");
-
-		ConexaoBD.resetBD();
-		return "http://192.168.99.100:8989";
-		// return "https://mantis.glaucia.base2.com.br";
+		//return "http://192.168.99.100:8989";
+		 return "https://localhost:8989";
 	}
 
 	@Rule
@@ -65,9 +61,7 @@ public class BaseTests {
 	}
 
 	public String faker() {
-		String aux;
-		// aux = java.time.LocalDateTime.now().toString();
-		// String faker = aux.substring(0, aux.length() - 3);
+		String aux;		
 		int i = (int) new Date().getTime();
 		aux = Integer.toString(i);
 
