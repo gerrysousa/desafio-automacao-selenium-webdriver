@@ -122,5 +122,38 @@ public class ConexaoBD {
 			ConexaoBD.FecharConexao();
 		}
 	}
+	public static void resetBD() {
+		Process p = null;
 
+	    try {
+	      //      System.out.println(command);
+	            Runtime runtime = Runtime.getRuntime();
+	            //runtimeProcess = Runtime.getRuntime().exec(new String[] { "cmd.exe", "/c", executeCmd });
+	            //p = runtime.exec(command);
+	            //Runtime.getRuntime().exec(&quot;cmd /c mysql --host=localhost --user=usuario --password=senha --database=basededados &lt; &quot; + file);
+	            //p = runtime.exec(new String[] { "cmd.exe", "/c", command });
+	            String command = "mysql.exe  --protocol=tcp --host=localhost --user=root --password=root --port=3306 --database=bugtracker  < \"C:\\\\mantis\\\\mantis_base.sql\"";
+	            System.out.println(command);
+	            //p = runtime.exec(new String[] { "cmd.exe", "/c", command });
+	            String path = "C:\\mantis";
+	            p = Runtime.getRuntime().exec("cmd /c start /wait " + path + "\\resetBD.bat");
+	            //p = Runtime.getRuntime().exec("cmd /c C:\\mantis\\resetBD.bat");
+	            //p = runtime.exec(command);
+	            
+	            //C:\mantis\resetBD.bat
+	            //Thread.sleep(5000);
+	            int processComplete = p.waitFor();
+
+	            if (processComplete == 0) {
+	                System.out.println("Backup restored successfully");
+
+	            } else {
+	                System.out.println("Could not restore the backup");
+	            }
+		
+			}
+	        catch (Exception ex) {
+				ex.printStackTrace();
+			}
+	}
 }
