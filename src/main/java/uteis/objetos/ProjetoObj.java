@@ -1,9 +1,9 @@
 package uteis.objetos;
 
 public class ProjetoObj {
-	
-	private int id;	
-	private String name;	
+
+	private int id;
+	private String name;
 	private String descrition;
 	private int status;
 

@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import base.BasePage;
 import static base.DriverFactory.getDriver;
 
-public class LoginPage extends BasePage{
-	
+public class LoginPage extends BasePage {
+
 	public void setUsername(String email) {
 		escrever(By.id("username"), email);
 	}
@@ -13,7 +13,7 @@ public class LoginPage extends BasePage{
 	public void setSenha(String senha) {
 		escrever(By.id("password"), senha);
 	}
-	
+
 	public void botaoEntrar() {
 		clicar(By.xpath("//input[@value='Entrar']"));
 	}
@@ -24,30 +24,30 @@ public class LoginPage extends BasePage{
 		setSenha(senha);
 		botaoEntrar();
 	}
-	
+
 	public boolean verificarSeLogouComSucesso() {
-		boolean existe = getDriver().getPageSource().contains("Minha Visão");//("Minha Visão - MantisBT");
-		
-		return	existe;
+		boolean existe = getDriver().getPageSource().contains("Minha Visão");// ("Minha Visão - MantisBT");
+
+		return existe;
 	}
-	
-	public boolean verificarAlerta(String alerta){
+
+	public boolean verificarAlerta(String alerta) {
 		boolean existe = getDriver().getPageSource().contains(alerta);
-		
-		return	existe;
+
+		return existe;
 	}
 
 	public boolean verificarAcessouRecuperarSenha() {
-		//i[@class='ace-icon fa fa-key']
+		// i[@class='ace-icon fa fa-key']
 		boolean existe = getDriver().getPageSource().contains("Reajuste de Senha");
-		
-		return	existe;
+
+		return existe;
 	}
 
 	public void clicarPerdeuASenha() {
-		clicar(By.linkText("Perdeu a sua senha?"));		
+		clicar(By.linkText("Perdeu a sua senha?"));
 	}
-	
+
 	public void usarLoginPadrao() {
 		setUsername("adminitrator");
 		botaoEntrar();

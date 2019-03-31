@@ -9,32 +9,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DriverFactory {
 	private static WebDriver driver;
 
-   	public static WebDriver getDriver() {   		
+	public static WebDriver getDriver() {
 		if (driver == null) {
-			 createDrive();
+			createDrive();
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 30);
-		
+
 		return driver;
 	}
 
 	private static void createDrive() {
-		try {			
-				System.setProperty("webdriver.gecko.driver", "C:\\workspace\\Ambiente\\geckodriver-v0.24.0-win64\\geckodriver.exe");
-				System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-				
-				driver = new ChromeDriver();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		try {
+			System.setProperty("webdriver.gecko.driver",
+					"C:\\workspace\\Ambiente\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 
-	}	
+			driver = new ChromeDriver();
 
-	public static void killDriver() 	{
-		if (driver != null) 
-		{
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+	}
+
+	public static void killDriver() {
+		if (driver != null) {
 			driver.quit();
 			driver = null;
 		}

@@ -6,16 +6,16 @@ import org.openqa.selenium.By;
 
 import base.BasePage;
 
-public class MinhaVisaoPage extends BasePage{
+public class MinhaVisaoPage extends BasePage {
 
 	public boolean verificarSeAcessouMinhaVisao() {
 		boolean existe = getDriver().getTitle().contains("Minha Visão - MantisBT");
-		
-		return	existe;
+
+		return existe;
 	}
 
 	public void acessarTarefasAtribuidasAMim() {
-		clicar(By.linkText("Atribuídos a Mim (não resolvidos)"));		
+		clicar(By.linkText("Atribuídos a Mim (não resolvidos)"));
 	}
 
 	public void acessarTarefasNaoAtribuidas() {
@@ -37,7 +37,5 @@ public class MinhaVisaoPage extends BasePage{
 	public void acessarTarefasMonitoradasPorMim() {
 		clicar(By.linkText("Monitorados por Mim"));
 	}
-	
-	
-	
+
 }

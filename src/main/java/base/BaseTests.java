@@ -14,41 +14,41 @@ import org.openqa.selenium.TakesScreenshot;
 
 import uteis.ConexaoBD;
 
-
 public class BaseTests {
 
-	public static String getUrlBase(){
+	public static String getUrlBase() {
 		ConexaoBD.selecionaTodosProjetos();
-		ConexaoBD.executeSql("UPDATE `bugtracker`.`mantis_project_table` SET `description` = ' update descria' WHERE (`id` = '2');");
-		
+		ConexaoBD.executeSql(
+				"UPDATE `bugtracker`.`mantis_project_table` SET `description` = ' update descria' WHERE (`id` = '2');");
+
 		return "http://192.168.99.100:8989";
-		//return "https://mantis.glaucia.base2.com.br";
+		// return "https://mantis.glaucia.base2.com.br";
 	}
-	
+
 	@Rule
-	public TestName testName = new TestName();	
-	
+	public TestName testName = new TestName();
+
 	@AfterClass
 	public static void finalizaClasse() {
 		DriverFactory.killDriver();
 	}
-	
+
 	@After
 	public void tearDown() {
 		gerarScreenShot();
 		DriverFactory.getDriver().close();
 		DriverFactory.killDriver();
 	}
-	
+
 	public void gerarScreenShot() {
 		try {
-			File imagem = ((TakesScreenshot)DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(imagem,new File("target/screenShots/"+testName.getMethodName()+".png"));
+			File imagem = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(imagem, new File("target/screenShots/" + testName.getMethodName() + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void esperar(long segundos) {
 		try {
 			Thread.sleep(segundos);
@@ -56,14 +56,14 @@ public class BaseTests {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public String faker() {
 		String aux;
-	    //aux = java.time.LocalDateTime.now().toString();	       
-	    //String faker = aux.substring(0, aux.length() - 3);
-		int i = (int) new Date().getTime();		
-		aux = Integer.toString(i); 
-		
-	    return aux;
-	}	
+		// aux = java.time.LocalDateTime.now().toString();
+		// String faker = aux.substring(0, aux.length() - 3);
+		int i = (int) new Date().getTime();
+		aux = Integer.toString(i);
+
+		return aux;
+	}
 }

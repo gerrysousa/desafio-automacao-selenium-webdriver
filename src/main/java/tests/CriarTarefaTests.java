@@ -21,7 +21,7 @@ import pages.VerTarefasPage;
 import uteis.ConexaoBD;
 import base.BaseTests;
 
-public class CriarTarefaTests extends BaseTests{
+public class CriarTarefaTests extends BaseTests {
 	private HomePage home;
 	private LoginPage login;
 	private MinhaVisaoPage minhaVisao;
@@ -35,16 +35,16 @@ public class CriarTarefaTests extends BaseTests{
 	private CriarUsuarioPage novoUsuario;
 	private CriarMarcadorPage novoMarcador;
 	private CriarTarefaPage novaTarefa;
-	
+
 	@Before
 	public void inicializaTeste() {
 		getDriver().get(getUrlBase());
-		login = new LoginPage();		
+		login = new LoginPage();
 		login.usarLoginPadrao();
-		Assert.assertTrue(login.verificarSeLogouComSucesso());	
-		
+		Assert.assertTrue(login.verificarSeLogouComSucesso());
+
 		home = new HomePage();
-		tarefa = new CriarTarefaPage(); 
+		tarefa = new CriarTarefaPage();
 		minhaVisao = new MinhaVisaoPage();
 		verTaredas = new VerTarefasPage();
 		mudanca = new RegistroMudancaPage();
@@ -55,11 +55,11 @@ public class CriarTarefaTests extends BaseTests{
 		novoUsuario = new CriarUsuarioPage();
 		novoMarcador = new CriarMarcadorPage();
 		novaTarefa = new CriarTarefaPage();
-		
+
 		home.clicaBotaoCriarTarefas();
-		Assert.assertTrue(novaTarefa.verificarSeAcessouCriarTarefa());	
-	}	
-		
+		Assert.assertTrue(novaTarefa.verificarSeAcessouCriarTarefa());
+	}
+
 	@Test
 	public void adicionarTarefa() {
 		novaTarefa.selecionarCategoria("[Todos os Projetos] General");
@@ -73,64 +73,53 @@ public class CriarTarefaTests extends BaseTests{
 		novaTarefa.setInfoAdicional("info");
 		novaTarefa.setMarcador("tag 1");
 		novaTarefa.selecionarMarcador("Marcador 01");
-		//novaTarefa.selecionarVisibilidade("publico");
-		
+		// novaTarefa.selecionarVisibilidade("publico");
+
 		novaTarefa.clicarBotaoNovaTarefa();
-		//Assert.assertTrue(verificar se existe categoria na tabela);				
+		// Assert.assertTrue(verificar se existe categoria na tabela);
 	}
-	
+
 	@Test
 	public void validarCampoResumoObrigatorio() {
 		novaTarefa.clicarBotaoNovaTarefa();
-		
-		//Assert.assertEquals("Preencha este campo.", novaTarefa.validarCampoResumoObrigatorio());			
+
+		// Assert.assertEquals("Preencha este campo.",
+		// novaTarefa.validarCampoResumoObrigatorio());
 	}
-	
+
 	@Test
 	public void validarCampoDescricaoObrigatorio() {
 		novaTarefa.clicarBotaoNovaTarefa();
 		novaTarefa.setResumo("resumo da tarefa");
-		
-		//Assert.assertEquals("Preencha este campo.", novaTarefa.validarCampoDescricaoObrigatorio());			
+
+		// Assert.assertEquals("Preencha este campo.",
+		// novaTarefa.validarCampoDescricaoObrigatorio());
 	}
-	
-	
-	
-	
-	/*===============================
-	Tarefa 
-	- validarCategoriaObrigatorio
-	- validarCampoResumoObrigatorio
-	- alidarCampoDescricaoObrigatorio
-	- atualizarResumoTarefaComSucesso
-	- atualizarStatusTarefaParaAdmitido
-	- addUmNovoMarcadorATarefa
-	- atribuirTarefa
-	- clonarTarefa
-	- apagarTarefa
-	- monitorarUmaTarefa
-	- marcarTarefaComoPegajosa
-	- moverTarefaDeProjeto
-	- fecharTarefa (status= Não será corrigido)
-	- resolverTarefa
-	- acesarImprimirTarefas
-	- salvarNovoFiltro
 
-
-		================================*/	
+	/*
+	 * =============================== Tarefa - validarCategoriaObrigatorio -
+	 * validarCampoResumoObrigatorio - alidarCampoDescricaoObrigatorio -
+	 * atualizarResumoTarefaComSucesso - atualizarStatusTarefaParaAdmitido -
+	 * addUmNovoMarcadorATarefa - atribuirTarefa - clonarTarefa - apagarTarefa -
+	 * monitorarUmaTarefa - marcarTarefaComoPegajosa - moverTarefaDeProjeto -
+	 * fecharTarefa (status= Não será corrigido) - resolverTarefa -
+	 * acesarImprimirTarefas - salvarNovoFiltro
+	 * 
+	 * 
+	 * ================================
+	 */
 	@Test
 	public void testesBD() {
-			
-		 String test = ConexaoBD.statusConection();
-		 
-		 ConexaoBD.getConexaoMySQL();
-		 
-		 String test2 = ConexaoBD.statusConection();
-		 
-	System.out.print(test);
-	System.out.print(test2);
-			
-		}
-	
-	
+
+		String test = ConexaoBD.statusConection();
+
+		ConexaoBD.getConexaoMySQL();
+
+		String test2 = ConexaoBD.statusConection();
+
+		System.out.print(test);
+		System.out.print(test2);
+
+	}
+
 }
