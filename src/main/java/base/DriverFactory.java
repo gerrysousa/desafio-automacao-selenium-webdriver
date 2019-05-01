@@ -1,43 +1,43 @@
 package base;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
+import static utils.Constantes.pathChrome;
+
 public class DriverFactory {
-	private static WebDriver driver;
 
-	public static WebDriver getDriver() {
-		if (driver == null) {
-			createDrive();
-		}
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+    private static WebDriver driver;
 
-		return driver;
-	}
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            createDrive();
+        }
+        WebDriverWait wait = new WebDriverWait(driver, 30);
 
-	private static void createDrive() {
-		try {
-			System.setProperty("webdriver.gecko.driver",
-					"C:\\workspace\\Ambiente\\geckodriver-v0.24.0-win64\\geckodriver.exe");
-			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        return driver;
+    }
 
-			driver = new ChromeDriver();
+    private static void createDrive() {
+        try {
+            System.setProperty("webdriver.chrome.driver", pathChrome);
+            driver = new ChromeDriver();
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+    }
 
-	}
-
-	public static void killDriver() {
-		if (driver != null) {
-			driver.quit();
-			driver = null;
-		}
-	}
-
+    public static void killDriver() 	{
+        if (driver != null)
+        {
+            driver.quit();
+            driver = null;
+        }
+    }
 }

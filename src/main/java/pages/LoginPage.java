@@ -1,57 +1,50 @@
 package pages;
 
-import org.openqa.selenium.By;
 import base.BasePage;
-import static base.DriverFactory.getDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-	public void setUsername(String email) {
-		escrever(By.id("username"), email);
-	}
+    public LoginPage() {
+        super();
+    }
 
-	public void setSenha(String senha) {
-		escrever(By.id("password"), senha);
-	}
+    @FindBy(id = "username")
+    private WebElement txtEmail;
 
-	public void botaoEntrar() {
-		clicar(By.xpath("//input[@value='Entrar']"));
-	}
+    @FindBy(id = "password")
+    private WebElement txtSenha;
 
-	public void fazerLogin(String username, String senha) {
-		setUsername(username);
-		botaoEntrar();
-		setSenha(senha);
-		botaoEntrar();
-	}
+    @FindBy(xpath = "//input[@value='Entrar']")
+    private WebElement btnLogin;
 
-	public boolean verificarSeLogouComSucesso() {
-		boolean existe = getDriver().getPageSource().contains("Minha Visão");// ("Minha Visão - MantisBT");
 
-		return existe;
-	}
 
-	public boolean verificarAlerta(String alerta) {
-		boolean existe = getDriver().getPageSource().contains(alerta);
+    public void preencherEmail(String email) {
+        escrever(txtEmail, email);
+    }
 
-		return existe;
-	}
+    public void preencherSenha(String senha) {
+        escrever(txtSenha, senha);
+    }
 
-	public boolean verificarAcessouRecuperarSenha() {
-		// i[@class='ace-icon fa fa-key']
-		boolean existe = getDriver().getPageSource().contains("Reajuste de Senha");
+    public void clicarBotaoLogin() {
+        clicar(btnLogin);
+    }
 
-		return existe;
-	}
 
-	public void clicarPerdeuASenha() {
-		clicar(By.linkText("Perdeu a sua senha?"));
-	}
 
-	public void usarLoginPadrao() {
-		setUsername("adminitrator");
-		botaoEntrar();
-		setSenha("adminitrator");
-		botaoEntrar();
-	}
+//    public boolean verficarSeLogouComSucesso() {
+//        clicar(By.id("mn-dashboard"));
+//        boolean existe = getDriver().getPageSource().contains("Processo Seletivo");
+//
+//        return	existe;
+//    }
+//
+//    public boolean verificarAlerta(String alerta){
+//        boolean existe = getDriver().getPageSource().contains(alerta);
+//
+//        return	existe;
+//    }
 }
