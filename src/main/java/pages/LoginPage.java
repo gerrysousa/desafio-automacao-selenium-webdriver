@@ -8,7 +8,7 @@ public class LoginPage extends BasePage {
 
     //Mapeamento de elementoe
     @FindBy(id = "username")
-    private WebElement txtEmail;
+    private WebElement txtUsername;
 
     @FindBy(id = "password")
     private WebElement txtSenha;
@@ -23,8 +23,8 @@ public class LoginPage extends BasePage {
     //Fim do mapeamento
 
     //Ações da pagina
-    public void preencherEmail(String email) {
-        escrever(txtEmail, email);
+    public void preencherUsername(String email) {
+        escrever(txtUsername, email);
     }
 
     public void preencherSenha(String senha) {

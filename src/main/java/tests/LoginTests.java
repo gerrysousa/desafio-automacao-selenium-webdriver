@@ -34,7 +34,7 @@ public class LoginTests extends BaseTests {
     @Test(priority = 1, description = "Testa login sem colocar a senha")
     public void deveValidarLoginSemSenha() {
         //Ações do Teste
-        new LoginPage().preencherEmail("administrator");
+        new LoginPage().preencherUsername("administrator");
         new LoginPage().clicarBotaoLogin();
 
         new LoginPage().clicarBotaoLogin();
@@ -47,7 +47,7 @@ public class LoginTests extends BaseTests {
     @Test(priority = 1, description = "Testa login com senha errada")
     public void deveValidarLoginComSenhaInvalida() {
         //Ações do Teste
-        new LoginPage().preencherEmail("administrator");
+        new LoginPage().preencherUsername("administrator");
         new LoginPage().clicarBotaoLogin();
         new LoginPage().preencherSenha("senhaErrada");
         new LoginPage().clicarBotaoLogin();
@@ -59,7 +59,7 @@ public class LoginTests extends BaseTests {
 
     @Test(priority = 1, description = "Testa login, verifica se acessou a pagina de recuperação de senha")
     public void deveAcessarRecuperarSenha() {
-        new LoginPage().preencherEmail(loginPadrao);
+        new LoginPage().preencherUsername(loginPadrao);
         new LoginPage().clicarBotaoLogin();
         new LoginPage().clicarLinkPerdeuSenha();
 

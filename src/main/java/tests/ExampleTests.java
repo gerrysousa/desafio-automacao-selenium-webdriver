@@ -12,7 +12,7 @@ public class ExampleTests extends BaseTests {
     @Test(priority = 1, description = "Testa login com sucesso")
     public void deveLogarComSucesso(){
         //Ações do Teste
-        new LoginPage().preencherEmail("administrator");
+        new LoginPage().preencherUsername("administrator");
         new LoginPage().clicarBotaoLogin();
         new LoginPage().preencherSenha("duarte");
         new LoginPage().clicarBotaoLogin();
@@ -24,7 +24,7 @@ public class ExampleTests extends BaseTests {
     @Test (priority = 5, description = "Testa login com falha")
     public void devefalhar() throws InterruptedException{
         //Ações do Teste
-        new LoginPage().preencherEmail("administrator");
+        new LoginPage().preencherUsername("administrator");
         new LoginPage().clicarBotaoLogin();
         new LoginPage().preencherSenha("senhaErrada");
         new LoginPage().clicarBotaoLogin();
