@@ -26,7 +26,6 @@ public class BaseTests {
     public  static String fileName;
 
     public static String getUrlBase() {
-        // return "http://192.168.99.100:8989";
         return urlBase;
     }
 
@@ -62,7 +61,7 @@ public class BaseTests {
         if(result.getStatus()==ITestResult.SUCCESS)
         {
             String temp= utils.Utils.getScreenshot(getDriver());
-            log.log(Status.PASS, "Title verified");
+            log.log(Status.PASS, "Teste concluído com sucesso!");
         }
 
         reporter.flush();

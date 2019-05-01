@@ -4,7 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage {
+public class ExemploPage extends BasePage {
 
     //Mapeamento de elementoe
     @FindBy(id = "username")
@@ -15,10 +15,6 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//input[@value='Entrar']")
     private WebElement btnLogin;
-
-    @FindBy(linkText = "Perdeu a sua senha?")
-    private WebElement linkPerdeuSenha;
-
 
     //Fim do mapeamento
 
@@ -35,14 +31,6 @@ public class LoginPage extends BasePage {
         clicar(btnLogin);
     }
 
-    public void clicarLinkPerdeuSenha() {
-        clicar(linkPerdeuSenha);
-    }
-
-    public String retornaMensagemDoAlerta() {
-
-        return "";
-    }
 
     //Fim ações
 }

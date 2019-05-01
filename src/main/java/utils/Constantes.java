@@ -7,4 +7,7 @@ public class Constantes {
 
     public static String urlBase= "https://mantis.glaucia.base2.com.br/login_page.php";
     public static int defaultTimeout= 30;
+
+    public static String loginPadrao= "administrator";
+    public static String senhaPadrao= "duarte";
 }

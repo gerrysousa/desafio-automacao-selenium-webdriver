@@ -165,6 +165,25 @@ public class BasePage {
 
 //===========Precisa ser Refatorado================
 
+    public boolean verificarSeExisteTextoNaPagina(String alerta) {
+        boolean existe = getDriver().getPageSource().contains(alerta);
+
+        return existe;
+    }
+
+    public boolean verificarSeExisteTextoNoElemento(WebElement element, String alerta) {
+        boolean existe = getDriver().getPageSource().contains(alerta);
+
+        return existe;
+    }
+
+    public boolean verificarSeExisteTextoNoTituloDaPagina(String alerta) {
+        boolean existe = getDriver().getTitle().contains(alerta);
+
+        return existe;
+    }
+
+
     public void clicar2(By by) {
         getDriver().findElement(by).click();
     }
