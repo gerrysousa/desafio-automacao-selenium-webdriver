@@ -1,2 +1,4 @@
-/target/
-.metadata/
+.idea/
+output/
+Reports/
+target/

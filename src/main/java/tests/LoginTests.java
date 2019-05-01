@@ -1,66 +1,36 @@
 package tests;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import pages.LoginPage;
 import base.BaseTests;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.LoginPage;
 import static base.DriverFactory.getDriver;
 
 public class LoginTests extends BaseTests {
 
-	private LoginPage login;
+    private LoginPage login;
 
-	@Before
-	public void inicializaTeste() {
-		getDriver().get(getUrlBase());
-		login = new LoginPage();
-	}
 
-	@Test
-	public void deveLogarComSucesso() {
-		login.fazerLogin("administrator", "administrator");
+    @Test (priority = 1, description = "Testa login com sucesso")
+    public void deveLogarComSucesso() throws InterruptedException{
+        login = new LoginPage();
+        login.preencherEmail("administrator");
+        login.clicarBotaoLogin();
+        login.preencherSenha("duarte");
+        login.clicarBotaoLogin();
 
-		Assert.assertTrue(login.verificarSeLogouComSucesso());
-	}
+        Assert.assertTrue(getDriver().getTitle().contains("Minha VisÃ£o - MantisBT"));
+    }
 
-	@Test
-	public void deveValidarLoginSemUsername() {
-		login.botaoEntrar();
+    @Test (priority = 1, description = "Testa login com falha")
+    public void devefalhar() throws InterruptedException{
+        login = new LoginPage();
+        login.preencherEmail("administrator");
+        login.clicarBotaoLogin();
+        login.preencherSenha("errada");
+        login.clicarBotaoLogin();
 
-		Assert.assertTrue(login.verificarAlerta(
-				"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
-	}
-
-	@Test
-	public void deveValidarLoginSemSenha() {
-		login.setUsername("administrator");
-		login.botaoEntrar();
-
-		login.botaoEntrar();
-
-		Assert.assertTrue(login.verificarAlerta(
-				"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
-	}
-
-	@Test
-	public void deveValidarLoginComSenhaInvalida() {
-		login.setUsername("administrator");
-		login.botaoEntrar();
-		login.setSenha("errada");
-		login.botaoEntrar();
-
-		Assert.assertTrue(login.verificarAlerta(
-				"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
-	}
-
-	@Test
-	public void deveAcessarRecuperarSenha() {
-		login.setUsername("administrator");
-		login.botaoEntrar();
-		login.clicarPerdeuASenha();
-
-		Assert.assertTrue(login.verificarAcessouRecuperarSenha());
-	}
+        Assert.assertTrue(getDriver().getTitle().contains("Minha VisÃ£o - MantisBT"));
+    }
 
 }
