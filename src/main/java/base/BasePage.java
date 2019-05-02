@@ -165,8 +165,8 @@ public class BasePage {
 
 //===========Precisa ser Refatorado================
 
-    public boolean verificarSeExisteTextoNaPagina(String alerta) {
-        boolean existe = getDriver().getPageSource().contains(alerta);
+    public boolean verificarSeExisteTextoNaPagina(String texto) {
+        boolean existe = getDriver().getPageSource().contains(texto);
 
         return existe;
     }
@@ -177,11 +177,17 @@ public class BasePage {
         return existe;
     }
 
-    public boolean verificarSeExisteTextoNoTituloDaPagina(String alerta) {
-        boolean existe = getDriver().getTitle().contains(alerta);
+    public boolean verificarSeExisteTextoNoTituloDaPagina(String texto) {
+        boolean existe = getDriver().getTitle().contains(texto);
 
         return existe;
     }
+
+//    public void Assert(String alerta) {
+//        boolean existe = getDriver().getTitle().contains(alerta);
+//
+//        return existe;
+//    }
 
 
     public void clicar2(By by) {

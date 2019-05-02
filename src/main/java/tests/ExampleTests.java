@@ -2,8 +2,12 @@ package tests;
 
 import base.BaseTests;
 import org.testng.Assert;
+import org.testng.ITestContext;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.LoginPage;
+import pages.*;
+
+import java.lang.reflect.Method;
 
 import static base.DriverFactory.getDriver;
 

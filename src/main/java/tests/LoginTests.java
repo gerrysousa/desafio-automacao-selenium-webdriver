@@ -4,6 +4,7 @@ import base.BaseTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.MenuPage;
 import pages.RecuperarSenhaPage;
 import utils.Steps.LoginSteps;
 import static base.DriverFactory.getDriver;
@@ -18,7 +19,7 @@ public class LoginTests extends BaseTests {
         new LoginSteps().fazerLogin(loginPadrao,senhaPadrao);
 
         //Verificação do Teste
-        Assert.assertTrue(getDriver().getTitle().contains("Minha Visão - MantisBT"));
+        Assert.assertTrue(new MenuPage().verificarSeExisteTextoNoTituloDaPagina("Minha Visão - MantisBT"));
     }
 
     @Test (priority = 1, description = "Testa login sem colocar email ou  nome")

@@ -46,4 +46,13 @@ public class Utils {
 
         return aux;
     }
+
+    public static String getDataHoraString()
+    {
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        String aux = new SimpleDateFormat("yyyyMMddhhmm").format(date);
+
+        return aux;
+    }
 }
