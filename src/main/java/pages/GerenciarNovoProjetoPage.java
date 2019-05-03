@@ -18,6 +18,9 @@ public class GerenciarNovoProjetoPage extends BasePage {
 
     @FindBy(xpath = "//input[@value='Adicionar projeto']")
     private WebElement btnAddProjeto;
+
+    @FindBy(xpath = "//input[@value='Atualizar Projeto']")
+    private WebElement btnAtualizarProjeto;
     //Fim do mapeamento
 
     //Ações da pagina
@@ -50,6 +53,9 @@ public class GerenciarNovoProjetoPage extends BasePage {
         return teste;
     }
 
+    public void clicarBotaoAtualizarProjeto() {
+        clicar(btnAtualizarProjeto);
+    }
     /*
 
     public void clicarBotaoEditarProjeto() {

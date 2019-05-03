@@ -107,12 +107,12 @@ public class GerenciarTests extends BaseTests {
 
         Assert.assertTrue(new GerenciarProjetoPage().procuraProjetoNaTabela(nomeProjeto));
 
-        new GerenciarProjetoPage().
-        gerenciar.clicarNomeProjeto("Projeto 02");
-        novoProjeto.setNomeProjeto("Projeto 02 Editado");
-        novoProjeto.clicarBotaoEditarProjeto();
+        String nomeAtualizado = nomeProjeto+" Atualizado";
+        new GerenciarProjetoPage().clicarNomeDoProjeto(nomeProjeto); //        gerenciar.clicarNomeProjeto("Projeto 02");
 
-        Assert.assertTrue(gerenciar.existeProjetoComNome("Projeto 02 Editado"));
+        new GerenciarSteps().atualizarProjeto(nomeAtualizado, descricao+" Atualizada", "desenvolvimento", true);
+
+        Assert.assertTrue(new GerenciarProjetoPage().procuraProjetoNaTabela(nomeAtualizado)); //Operação realizada com sucesso.
     }
 /*
     @Test

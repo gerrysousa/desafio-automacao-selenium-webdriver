@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -41,6 +42,11 @@ public class GerenciarProjetoPage extends BasePage {
 
     public boolean procuraCategoriaNaTabela(String categoria) {
         return verificarSeExisteTextoNoElemento(tabelaDeCategorias, categoria);
+    }
+
+    public void clicarNomeDoProjeto(String nomeProjeto) {
+        By linkNomeProjeto = By.linkText(nomeProjeto);
+        clicar(linkNomeProjeto);
     }
     //Fim das Acoes
 }
