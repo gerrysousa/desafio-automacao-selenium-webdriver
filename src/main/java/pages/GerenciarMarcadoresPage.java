@@ -39,4 +39,10 @@ public class GerenciarMarcadoresPage extends BasePage {
     public boolean procuraMarcadorNaTabela(String projeto) {
         return verificarSeExisteTextoNoElemento(tabelaDeMarcadores, projeto);
     }
+
+    public String validarCamposNomeObrigatorio() {
+        String teste = txtNomeMarcador.getAttribute("validationMessage");
+
+        return teste;
+    }
 }

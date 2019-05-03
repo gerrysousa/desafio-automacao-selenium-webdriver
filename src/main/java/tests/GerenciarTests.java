@@ -109,10 +109,20 @@ public class GerenciarTests extends BaseTests {
 
         String nomeAtualizado = nomeProjeto+" Atualizado";
         new GerenciarProjetoPage().clicarNomeDoProjeto(nomeProjeto); //        gerenciar.clicarNomeProjeto("Projeto 02");
-
         new GerenciarSteps().atualizarProjeto(nomeAtualizado, descricao+" Atualizada", "desenvolvimento", true);
 
         Assert.assertTrue(new GerenciarProjetoPage().procuraProjetoNaTabela(nomeAtualizado)); //Operação realizada com sucesso.
+    }
+
+    @Test
+    public void validarCampoNomeMarcadorObrigatorio() {
+        String aux = getDataHoraString();
+        new GerenciarVisaoGeralPage().clicarTabGerenciarMarcadores();
+        //new GerenciarMarcadoresPage().escreverNomeMarcador("Marcador "+aux);
+        new GerenciarMarcadoresPage().escreverDescricaoMarcador("Descricao "+aux);
+        new GerenciarMarcadoresPage().clicarBotaoAddMarcador();
+
+        Assert.assertEquals("Preencha este campo.", new GerenciarMarcadoresPage().validarCamposNomeObrigatorio());
     }
 /*
     @Test
@@ -124,16 +134,7 @@ public class GerenciarTests extends BaseTests {
         Assert.assertTrue(home.projetoSelecionado("Projeto 02 Editado"));
     }
 
-    @Test
-    public void validarCampoNomeMarcadorObrigatorio() {
-        gerenciar.acessarTabGerenciarMarcadores();
-        gerenciar.clicarBotaoAddMarcador();
-        // novoMarcador.setNomeMarcador("Marcador 02");
-        novoMarcador.setDescricaoMarcador("Descricao 02");
-        novoMarcador.clicarBotaoAddMarcador();
 
-        Assert.assertEquals("Preencha este campo.", novoMarcador.validarCamposObrigatorio());
-    }
 
     @Test
     public void atualizarNomeDoMarcador() {
