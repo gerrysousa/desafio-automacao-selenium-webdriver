@@ -278,58 +278,76 @@ public class GerenciarTests extends BaseTests {
       //  Assert.assertTrue(novoPerfilGlobal.existeNome("Plataforma 01"));
     }
 
-/*
-    @Test
-    public void mudarDeProjeto() {
-        gerenciar.acessarTabGerenciarProjetos();
-        Assert.assertTrue(home.projetoSelecionado("Projeto 01"));
-        home.selecionarDropDownProjetos("Projeto 02 Editado");
-
-        Assert.assertTrue(home.projetoSelecionado("Projeto 02 Editado"));
-    }
-
-
-
-
-
-
     @Test
     public void validarApagarCategoriaJaUtilizada() {
-        gerenciar.acessarTabGerenciarProjetos();
-        Assert.assertTrue(gerenciar.existeProjetoComNome("xxxxxx"));
-        gerenciar.clicarBotaoApagarCategoria("xxxxxx");
+      /*  String nomeCategotia = "Categoria "+getHoraString();
 
-        Assert.assertTrue(gerenciar.existeProjetoComNome(
-                "Categoria \"categoria1990\" não pode ser deletada, pois está associada com outro ou mais problemas."));
+        new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
+        new GerenciarProjetoPage().escreverNomeCategoria(nomeCategotia);
+        new GerenciarProjetoPage().clicarBotaoAddCatergoria();
+        Assert.assertTrue(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategotia));
+
+        cadastrar uma tarefa com a categoria
+       */
+        String nomeCategoria = "Categoria 0709";
+
+        new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
+        Assert.assertTrue(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategoria));
+        new GerenciarProjetoPage().clicarBotaoApagarCategoria(nomeCategoria);
+
+        Assert.assertTrue( new GerenciarProjetoPage().procurarMensagemAlerta("Categoria \"categoria1990\" não pode ser deletada, pois está associada com outro ou mais problemas."));
     }
-
-
 
     @Test
     public void validarCampoPlataformaObrigatorio() {
-        gerenciar.acessarTabGerenciarPerfisGlobais();
-        novoPerfilGlobal.clicarAdicionarPerfil();
+        String aux = "Perfil "+getHoraString();
 
-        Assert.assertEquals("Preencha este campo.", novoPerfilGlobal.validarCampoPlataformaObrigatorio());
+        new GerenciarVisaoGeralPage().clicarTabGerenciarPerfisGlobais();
+        new GerenciarNovoPerfilGlobalPage().preencherOS("Android");
+        new GerenciarNovoPerfilGlobalPage().preencherOSVersao("Android"+aux);
+        new GerenciarNovoPerfilGlobalPage().preencherDescricao("Descricao "+aux);
+        new GerenciarNovoPerfilGlobalPage().clicarAddPerfilGlobal();
+
+        Assert.assertEquals("Preencha este campo.", new GerenciarNovoPerfilGlobalPage().validarCampoPlataformaObrigatorio());
     }
 
     @Test
     public void validarCampoSOObrigatorio() {
-        gerenciar.acessarTabGerenciarPerfisGlobais();
-        novoPerfilGlobal.setNomePlataforma("Plataforma 01");
-        novoPerfilGlobal.clicarAdicionarPerfil();
+        String aux = "Perfil "+getHoraString();
 
-        Assert.assertEquals("Preencha este campo.", novoPerfilGlobal.validarCampoSOObrigatorio());
+        new GerenciarVisaoGeralPage().clicarTabGerenciarPerfisGlobais();
+        new GerenciarNovoPerfilGlobalPage().preencherPlataforma(aux);
+        //new GerenciarNovoPerfilGlobalPage().preencherOS("Android");
+        new GerenciarNovoPerfilGlobalPage().preencherOSVersao("Android"+aux);
+        new GerenciarNovoPerfilGlobalPage().preencherDescricao("Descricao "+aux);
+        new GerenciarNovoPerfilGlobalPage().clicarAddPerfilGlobal();
+
+        Assert.assertEquals("Preencha este campo.", new GerenciarNovoPerfilGlobalPage().validarCampoSOObrigatorio());
     }
 
     @Test
     public void validarCampoVersaoSOObrigatorio() {
-        gerenciar.acessarTabGerenciarPerfisGlobais();
-        novoPerfilGlobal.setNomePlataforma("Plataforma 02");
-        novoPerfilGlobal.setSO("Android Kit Kat");
-        novoPerfilGlobal.clicarAdicionarPerfil();
+        String aux = "Perfil "+getHoraString();
 
-        Assert.assertEquals("Preencha este campo.", novoPerfilGlobal.validarCampoVersaoSOObrigatorio());
+        new GerenciarVisaoGeralPage().clicarTabGerenciarPerfisGlobais();
+        new GerenciarNovoPerfilGlobalPage().preencherPlataforma(aux);
+        new GerenciarNovoPerfilGlobalPage().preencherOS("Android");
+       // new GerenciarNovoPerfilGlobalPage().preencherOSVersao("Android"+aux);
+        new GerenciarNovoPerfilGlobalPage().preencherDescricao("Descricao "+aux);
+        new GerenciarNovoPerfilGlobalPage().clicarAddPerfilGlobal();
+
+        Assert.assertEquals("Preencha este campo.", new GerenciarNovoPerfilGlobalPage().validarCampoVersaoSOObrigatorio());
     }
-*/
+
+    @Test
+    public void mudarDeProjeto() {
+        //new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
+        String projetoSelecionado = new MenuPage().obterProjetoSelecionado();
+
+        String outroProjeto = " Projeto 0732 ";
+        new MenuPage().selecionarProjetosNoDropdowd(outroProjeto);
+
+        Assert.assertFalse(projetoSelecionado==new MenuPage().obterProjetoSelecionado());
+        Assert.assertTrue(outroProjeto==new MenuPage().obterProjetoSelecionado());
+    }
 }

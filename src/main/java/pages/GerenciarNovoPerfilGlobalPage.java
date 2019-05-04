@@ -44,6 +44,24 @@ public class GerenciarNovoPerfilGlobalPage extends BasePage {
         clicar(btnAddPerfilGlobal);
     }
 
+    public String validarCampoPlataformaObrigatorio() {
+        String teste = txtPlataforma.getAttribute("validationMessage");
+
+        return teste;
+    }
+
+    public String validarCampoSOObrigatorio() {
+        String teste = txtOs.getAttribute("validationMessage");
+
+        return teste;
+    }
+
+    public String validarCampoVersaoSOObrigatorio() {
+        String teste = txtOsVersão.getAttribute("validationMessage");
+
+        return teste;
+    }
+
 
     //Fim ações
 }

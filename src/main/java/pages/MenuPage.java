@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -29,7 +30,8 @@ public class MenuPage extends BasePage {
     @FindBy(xpath = "//span[text()=' Gerenciar ']")
     private WebElement btnGerenciar;
 
-
+    @FindBy(xpath = "//li[@id='dropdown_projects_menu']/a[@class='dropdown-toggle']")
+    private WebElement lblProjetoSelecionado;
 
     //Fim do mapeamento
 
@@ -64,4 +66,15 @@ public class MenuPage extends BasePage {
         clicar(btnGerenciar);
     }
 
+    public String obterProjetoSelecionado() {
+        String teste = lblProjetoSelecionado.getText();
+
+        return teste;
+    }
+
+    public void selecionarProjetosNoDropdowd(String nomeProjeto) {
+        clicar(lblProjetoSelecionado);
+        By linkNomeProjeto = By.linkText(nomeProjeto);
+        clicar(linkNomeProjeto);
+    }
 }
