@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,6 +22,11 @@ public class GerenciarUsuariosPage extends BasePage {
 
     public boolean procurarUsuarioNaTabela(String projeto) {
         return verificarSeExisteTextoNoElemento(tabelaDeUsuarios, projeto);
+    }
+
+    public void clicarNomeDoUsuario(String nomeUsuario) {
+        By linkNomeUsuario = By.linkText(nomeUsuario);
+        clicar(linkNomeUsuario);
     }
 
     //Fim ações

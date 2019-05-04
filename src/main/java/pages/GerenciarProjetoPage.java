@@ -21,6 +21,9 @@ public class GerenciarProjetoPage extends BasePage {
 
     @FindBy(id = "categories")
     private WebElement tabelaDeCategorias;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    private WebElement lblMensagemAlerta;
     //Fim do mapeamento
 
     //Ações da pagina
@@ -47,6 +50,25 @@ public class GerenciarProjetoPage extends BasePage {
     public void clicarNomeDoProjeto(String nomeProjeto) {
         By linkNomeProjeto = By.linkText(nomeProjeto);
         clicar(linkNomeProjeto);
+    }
+
+    public boolean procurarMensagemAlerta(String mensagem) {
+        return verificarSeExisteTextoNoElemento(lblMensagemAlerta, mensagem);
+    }
+
+    public void clicarBotaoEditarCategoria(String categoriaNome) {
+        By editarCategoria = By.xpath("//td[contains(text(),'" + categoriaNome + "')]/following-sibling::td[2]//button[text()='Alterar']");
+        clicar(editarCategoria);
+    }
+
+    public void clicarBotaoApagarCategoria(String categoriaNome) {
+        By apagarCategoria = By.xpath("//td[contains(text(),'" + categoriaNome + "')]/following-sibling::td[2]//button[text()='Apagar']");
+        clicar(apagarCategoria);
+    }
+
+    public void clicarBotaoApagarCategoriaConfirmacao() {
+        By apagarCategoria = By.xpath("//input[@value='Apagar Categoria']");
+        clicar(apagarCategoria);
     }
     //Fim das Acoes
 }

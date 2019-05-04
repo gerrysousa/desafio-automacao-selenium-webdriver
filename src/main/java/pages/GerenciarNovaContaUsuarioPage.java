@@ -27,6 +27,12 @@ public class GerenciarNovaContaUsuarioPage extends BasePage {
     @FindBy(xpath = "//input[@value='Criar Usuário']")
     private WebElement btnCriarUsuario;
 
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    private WebElement lblMensagemAlertaUsario;
+
+    @FindBy(xpath = "//input[@value='Atualizar Usuário']")
+    private WebElement btnAtualizarUsuario;
+
     //Fim do mapeamento
 
     //Ações da pagina
@@ -46,9 +52,19 @@ public class GerenciarNovaContaUsuarioPage extends BasePage {
         escrever(txtNomeRealUsuario, nome);
     }
 
+    public String validarCamposNomeObrigatorio() {
+        String teste = lblMensagemAlertaUsario.getText();//.getAttribute("validationMessage");
 
+        return teste;
+    }
 
+    public boolean procurarMensagemAlerta(String mensagem) {
+        return verificarSeExisteTextoNoElemento(lblMensagemAlertaUsario, mensagem);
+    }
 
+    public void clicarBotaoAtualizarConta() {
+        clicar(btnAtualizarUsuario);
+    }
 
     //Fim ações
 }

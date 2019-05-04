@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -44,5 +45,10 @@ public class GerenciarMarcadoresPage extends BasePage {
         String teste = txtNomeMarcador.getAttribute("validationMessage");
 
         return teste;
+    }
+
+    public void clicarNomeDoMarcador(String nomeMarcador) {
+        By linkNomeMarcador = By.linkText(nomeMarcador);
+        clicar(linkNomeMarcador);
     }
 }
