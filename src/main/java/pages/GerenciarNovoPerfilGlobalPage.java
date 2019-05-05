@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class GerenciarNovoPerfilGlobalPage extends BasePage {
     //Mapeamento de elementoe
-    @FindBy(id = "plataform")
+    @FindBy(id = "platform")
     private WebElement txtPlataforma;
 
     @FindBy(id = "os")
@@ -20,6 +20,9 @@ public class GerenciarNovoPerfilGlobalPage extends BasePage {
 
     @FindBy(xpath = "//input[@value='Adicionar Perfil']")
     private WebElement btnAddPerfilGlobal;
+
+    @FindBy(id = "select-profile")
+    private WebElement cbxSelecionaPerfilGlobal;
 
     //Fim do mapeamento
 
@@ -60,6 +63,11 @@ public class GerenciarNovoPerfilGlobalPage extends BasePage {
         String teste = txtOsVersão.getAttribute("validationMessage");
 
         return teste;
+    }
+
+    public boolean procuraPerfilNoComboBox(String nomePerfil) {
+        clicar(cbxSelecionaPerfilGlobal);
+        return verificarSeExisteTextoNoElemento(cbxSelecionaPerfilGlobal, nomePerfil);
     }
 
 

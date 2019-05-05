@@ -20,6 +20,10 @@ public class GerenciarEditarCategoriaPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     private WebElement lblMensagemAlerta;
+
+    @FindBy(xpath = "//div[@class='    alert alert-success center']")
+    private WebElement lblMensagemAlertaSucesso;
+
     //Fim do mapeamento
 
     //Ações da pagina
@@ -37,6 +41,10 @@ public class GerenciarEditarCategoriaPage extends BasePage {
 
     public boolean procurarMensagemAlerta(String mensagem) {
         return verificarSeExisteTextoNoElemento(lblMensagemAlerta, mensagem);
+    }
+
+    public boolean procurarMensagemAlertaSucesso(String mensagem) {
+        return verificarSeExisteTextoNoElemento(lblMensagemAlertaSucesso, mensagem);
     }
     //Fim ações
 }

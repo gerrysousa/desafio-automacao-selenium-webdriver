@@ -69,6 +69,7 @@ public class GerenciarTests extends BaseTests {
 //       new GerenciarNovaContaUsuarioPage().habilitado(true);
 //       new GerenciarNovaContaUsuarioPage().protegido(false);
         new GerenciarNovaContaUsuarioPage().clicarBotaoAddNovaConta();
+        new GerenciarVisaoGeralPage().clicarTabGerenciarUsuarios();
 
         Assert.assertTrue(new GerenciarUsuariosPage().procurarUsuarioNaTabela("user"+aux));
     }
@@ -136,7 +137,7 @@ public class GerenciarTests extends BaseTests {
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarMarcadores();
         new GerenciarMarcadoresPage().clicarNomeDoMarcador(nomeMarcarcor);
-        String nomeAtualizado = nomeMarcarcor+" Atualizado";
+        String nomeAtualizado = "Marcador Atualizado "+getDataHoraString();
 
         new GerenciarNovoMarcadorPage().clicarBotaoEditarMarcador();
         new GerenciarNovoMarcadorPage().escreverNomeMarcador(nomeAtualizado);
@@ -196,19 +197,22 @@ public class GerenciarTests extends BaseTests {
         new GerenciarNovaContaUsuarioPage().escreverEmail("user"+nomeUsuario+"@autotest.com");
         new GerenciarNovaContaUsuarioPage().clicarBotaoAddNovaConta();
 
+        new MenuPage().clicaBtnGerenciar();
+        new GerenciarVisaoGeralPage().clicarTabGerenciarUsuarios();
+
         Assert.assertTrue(new GerenciarUsuariosPage().procurarUsuarioNaTabela(nomeUsuario));
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarUsuarios();
         new GerenciarUsuariosPage().clicarNomeDoUsuario(nomeUsuario);
 
         String usuarioAtualizado = "atualizado"+nomeUsuario;
-        new GerenciarNovaContaUsuarioPage().escreverNomeUsuario(usuarioAtualizado);
-        new GerenciarNovaContaUsuarioPage().escreverNomeRealUsuario("Real Name "+usuarioAtualizado);
-        new GerenciarNovaContaUsuarioPage().escreverEmail("user"+usuarioAtualizado+"@autotest.com");
-        new GerenciarNovaContaUsuarioPage().clicarBotaoAtualizarConta();
+        new GerenciarEditarContaUsuarioPage().escreverNomeUsuario(usuarioAtualizado);
+        new GerenciarEditarContaUsuarioPage().escreverNomeRealUsuario("Real Name "+usuarioAtualizado);
+        new GerenciarEditarContaUsuarioPage().escreverEmail(usuarioAtualizado+"@autotest.com");
+        new GerenciarEditarContaUsuarioPage().clicarBotaoAtualizarConta();
 
         //Assert.assertTrue(new GerenciarNovaContaUsuarioPage().procurarMensagemAlerta("Operação realizada com sucesso."));
-        System.out.println("Se resultado for true pode descomentar, resultado="+new GerenciarNovaContaUsuarioPage().procurarMensagemAlerta("Operação realizada com sucesso."));
+        //System.out.println("Se resultado for true pode descomentar, resultado="+new GerenciarNovaContaUsuarioPage().procurarMensagemAlerta("Operação realizada com sucesso."));
 
         new MenuPage().clicaBtnGerenciar();
         new GerenciarVisaoGeralPage().clicarTabGerenciarUsuarios();
@@ -239,7 +243,7 @@ public class GerenciarTests extends BaseTests {
         new GerenciarEditarCategoriaPage().clicarBotaoAtualizarCategoria();
 
         //Assert.assertTrue(new GerenciarEditarCategoriaPage().procurarMensagemAlerta("Operação realizada com sucesso."));
-        System.out.println("Se resultado for true pode descomentar, resultado="+new GerenciarEditarCategoriaPage().procurarMensagemAlerta("Operação realizada com sucesso."));
+       // System.out.println("Se resultado for true pode descomentar, resultado="+new GerenciarEditarCategoriaPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
         //Assert.assertFalse(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategotia));
@@ -256,12 +260,13 @@ public class GerenciarTests extends BaseTests {
         Assert.assertTrue(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategotia));
 
         new GerenciarProjetoPage().clicarBotaoApagarCategoria(nomeCategotia);
-        //Assert.assertTrue(new GerenciarProjetoPage().procurarMensagemAlerta("Você tem certeza que deseja deletar a categoria"));
-        boolean teste = new GerenciarProjetoPage().procurarMensagemAlerta("Você tem certeza que deseja deletar a categoria");
-        System.out.println("se for true deve colocar assert="+teste);
+        Assert.assertTrue(new GerenciarProjetoPage().procurarMensagemAlertaConfirmacao("Você tem certeza que deseja deletar a categoria"));
+        new GerenciarEditarCategoriaPage().clicarBotaoApagarCategoria();
+//        boolean teste = new GerenciarProjetoPage().procurarMensagemAlertaConfirmacao("Você tem certeza que deseja deletar a categoria");
+//        System.out.println("se for true deve colocar assert="+teste);
 
-        new GerenciarProjetoPage().clicarBotaoApagarCategoriaConfirmacao();
-        Assert.assertTrue(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategotia));
+       // new GerenciarProjetoPage().clicarBotaoApagarCategoriaConfirmacao();
+        Assert.assertFalse(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategotia));
     }
 
     @Test
@@ -275,7 +280,7 @@ public class GerenciarTests extends BaseTests {
         new GerenciarNovoPerfilGlobalPage().preencherDescricao("Descricao "+aux);
         new GerenciarNovoPerfilGlobalPage().clicarAddPerfilGlobal();
 
-      //  Assert.assertTrue(novoPerfilGlobal.existeNome("Plataforma 01"));
+        Assert.assertTrue(new GerenciarNovoPerfilGlobalPage().procuraPerfilNoComboBox(aux));
     }
 
     @Test
@@ -295,7 +300,7 @@ public class GerenciarTests extends BaseTests {
         Assert.assertTrue(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategoria));
         new GerenciarProjetoPage().clicarBotaoApagarCategoria(nomeCategoria);
 
-        Assert.assertTrue( new GerenciarProjetoPage().procurarMensagemAlerta("Categoria \"categoria1990\" não pode ser deletada, pois está associada com outro ou mais problemas."));
+        Assert.assertTrue( new GerenciarProjetoPage().procurarMensagemAlerta("Categoria \"Categoria 0709\" não pode ser deletada, pois está associada com outro ou mais problemas."));
     }
 
     @Test
@@ -341,13 +346,14 @@ public class GerenciarTests extends BaseTests {
 
     @Test
     public void mudarDeProjeto() {
-        //new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
+        //To do : Criar projeto 1
+        //To do : selecionar projeto 1
         String projetoSelecionado = new MenuPage().obterProjetoSelecionado();
-
-        String outroProjeto = " Projeto 0732 ";
+        String outroProjeto = "Projeto 0732";
+        //To do : Criar projeto 2
         new MenuPage().selecionarProjetosNoDropdowd(outroProjeto);
 
-        Assert.assertFalse(projetoSelecionado==new MenuPage().obterProjetoSelecionado());
-        Assert.assertTrue(outroProjeto==new MenuPage().obterProjetoSelecionado());
+        Assert.assertNotEquals(projetoSelecionado, new MenuPage().obterProjetoSelecionado());
+        Assert.assertEquals(" "+outroProjeto+" ", new MenuPage().obterProjetoSelecionado());
     }
 }

@@ -172,7 +172,8 @@ public class BasePage {
     }
 
     public boolean verificarSeExisteTextoNoElemento(WebElement element, String alerta) {
-        boolean existe = getDriver().getPageSource().contains(alerta);
+        String teste =element.getText();
+        boolean existe = element.getText().contains(alerta);
 
         return existe;
     }
