@@ -185,6 +185,7 @@ public class BasePage {
     }
 
     public String obterTextoDoElemento(WebElement element){
+        String test = element.getText();
         return element.getText();
     }
 

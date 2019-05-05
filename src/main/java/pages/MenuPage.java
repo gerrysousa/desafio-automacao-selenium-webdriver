@@ -36,6 +36,11 @@ public class MenuPage extends BasePage {
     @FindBy(xpath = "//span[@class='user-info']")
     private WebElement lblUsuarioLogado;
 
+    @FindBy(xpath = "//div[@class='alert alert-success center']")
+    private WebElement lblMensagemAlertaSucesso;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    private WebElement lblMensagemAlertaErro;
     //Fim do mapeamento
 
     //Ações da pagina
@@ -84,5 +89,13 @@ public class MenuPage extends BasePage {
 
     public String obterUsuarioLogado() {
         return obterTextoDoElemento(lblUsuarioLogado);
+    }
+
+    public boolean procurarMensagemAlertaSucesso(String mensagem) {
+        return verificarSeExisteTextoNoElemento(lblMensagemAlertaSucesso, mensagem);
+    }
+
+    public boolean procurarMensagemAlertaErro(String mensagem) {
+        return verificarSeExisteTextoNoElemento(lblMensagemAlertaErro, mensagem);
     }
 }

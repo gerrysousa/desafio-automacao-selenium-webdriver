@@ -243,7 +243,7 @@ public class GerenciarTests extends BaseTests {
         new GerenciarEditarCategoriaPage().clicarBotaoAtualizarCategoria();
 
         //Assert.assertTrue(new GerenciarEditarCategoriaPage().procurarMensagemAlerta("Operação realizada com sucesso."));
-       // System.out.println("Se resultado for true pode descomentar, resultado="+new GerenciarEditarCategoriaPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
+        System.out.println("Se resultado for true pode descomentar, resultado="+new GerenciarEditarCategoriaPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
         //Assert.assertFalse(new GerenciarProjetoPage().procuraCategoriaNaTabela(nomeCategotia));

@@ -21,7 +21,7 @@ public class GerenciarEditarCategoriaPage extends BasePage {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     private WebElement lblMensagemAlerta;
 
-    @FindBy(xpath = "//div[@class='    alert alert-success center']")
+    @FindBy(xpath = "//div[@class='alert alert-success center']")
     private WebElement lblMensagemAlertaSucesso;
 
     //Fim do mapeamento

@@ -22,7 +22,9 @@ public class VerTodasTarefasPage extends BasePage {
     @FindBy(id = "user_monitor_filter_target")
     private WebElement lblMonitoradoPor;
 
-
+    //@FindBy(xpath = "//div[@class='table-responsive']")
+    @FindBy(id ="buglist")
+    private WebElement tabelaDeTarefas;
 
     //Fim do mapeamento
 
@@ -52,6 +54,23 @@ public class VerTodasTarefasPage extends BasePage {
     public String obterFiltroMonitoradoPor() {
         return obterTextoDoElemento(lblMonitoradoPor);
     }
+
+    public void clicarEditarTarefa(String resumo) {
+        By editar = By.xpath("//td[text()='"+resumo+"']/preceding-sibling::td[@class='column-edit']/a");
+        clicar(editar);
+    }
+
+    public boolean procurarTarefaNaTabela(String tarefa) {
+        return verificarSeExisteTextoNoElemento(tabelaDeTarefas, tarefa);
+    }
+
+    public void clicarVerDetalhesTarefa(String resumo) {
+        By editar = By.xpath("//td[text()='"+resumo+"']/preceding-sibling::td[@class='column-id']/a");
+        clicar(editar);
+    }
+
+
+
 
     //Fim ações
 
