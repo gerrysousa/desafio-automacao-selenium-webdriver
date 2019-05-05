@@ -40,7 +40,7 @@ public class TarefaSteps {
         new CriarTarefasPage().escreverPassosParaReproduzir(passos);
         new CriarTarefasPage().editarInfoAdicional(infoAdicional);
         new CriarTarefasPage().escreverAnotacao(anotacao);
-        new CriarTarefasPage().clicarCheBoxPrivado(anotacaoPrivado);
+        //new CriarTarefasPage().clicarCheBoxPrivado(anotacaoPrivado);
         new CriarTarefasPage().clicarBtnAtualizarInformacoes();
     }
 

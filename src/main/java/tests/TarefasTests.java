@@ -120,11 +120,39 @@ public class TarefasTests extends BaseTests {
         Assert.assertEquals("fechado", new CriarTarefasPage().obterStatusTarefa());
     }
 
+    @Test
+    public void apagarTarefa() {
+        String resumo = "Resumo "+getDataHoraString();
+        new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
+        Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
+
+        new VerTodasTarefasPage().clicarVerDetalhesTarefa(resumo);
+        new CriarTarefasPage().clicarBtnApagarTarefa();
+        new CriarTarefasPage().clicarBtnStatusPrincipal();
+
+        Assert.assertFalse(new VerTodasTarefasPage().procurarTarefaNaTabela(resumo));
+    }
+
+    @Test
+    public void adicionarUmNovoMarcadorATarefa() {
+        String resumo = "Resumo "+getDataHoraString();
+        new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
+        Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
+
+        new VerTodasTarefasPage().clicarVerDetalhesTarefa(resumo);
+        new CriarTarefasPage().escreverMarcador("NovaTag");
+        new CriarTarefasPage().clicarBtnAplicarMarcador();
+
+        Assert.assertTrue(new CriarTarefasPage().procuraMarcadoresDaTarefa("NovaTag"));
+    }
+
+
+
+
     /*
 	 - addUmNovoMarcadorATarefa
-	 -atribuirTarefaParaUmUsuario
+	 - atribuirTarefaParaUmUsuario
 	 - clonarTarefa
-	 - apagarTarefa
 	 - moverTarefaDeProjeto
 	 - fecharTarefa (status= Não será corrigido)
 	 - resolverTarefa

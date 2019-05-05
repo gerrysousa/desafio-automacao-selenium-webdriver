@@ -97,6 +97,14 @@ public class CriarTarefasPage extends BasePage {
     @FindBy(xpath = "//select[@name='resolution']")
     private WebElement cbxResolucao;
 
+    @FindBy(xpath = "//input[@value='Apagar']")
+    private WebElement btnApagarTarefa;
+
+    @FindBy(xpath = "//input[@value='Aplicar']")
+    private WebElement btnAplicarMarcador;
+
+    @FindBy(xpath = "//td[@class='bug-tags']")
+    private WebElement lblMarcadoresTarefa;
 
     //Fim do mapeamento
 
@@ -227,6 +235,20 @@ public class CriarTarefasPage extends BasePage {
     public void selecionarResolucao(String resolucao) {
         selecionarComboBox(cbxResolucao, resolucao);
     }
+
+    public void clicarBtnApagarTarefa() {
+        clicar(btnApagarTarefa);
+    }
+
+    public void clicarBtnAplicarMarcador() {
+        clicar(btnAplicarMarcador);
+    }
+
+    public boolean procuraMarcadoresDaTarefa(String marcador) {
+        return verificarSeExisteTextoNoElemento(lblMarcadoresTarefa, marcador);
+    }
+
+
     //Fim ações
 
 
