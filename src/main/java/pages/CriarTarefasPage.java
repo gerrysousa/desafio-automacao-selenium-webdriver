@@ -94,6 +94,9 @@ public class CriarTarefasPage extends BasePage {
     @FindBy(xpath = "//input[@class='btn btn-primary btn-white btn-round']")
     private WebElement btnStatusPrincipal;
 
+    @FindBy(xpath = "//select[@name='resolution']")
+    private WebElement cbxResolucao;
+
 
     //Fim do mapeamento
 
@@ -219,6 +222,10 @@ public class CriarTarefasPage extends BasePage {
 
     public void clicarBtnStatusPrincipal() {
         clicar(btnStatusPrincipal);
+    }
+
+    public void selecionarResolucao(String resolucao) {
+        selecionarComboBox(cbxResolucao, resolucao);
     }
     //Fim ações
 

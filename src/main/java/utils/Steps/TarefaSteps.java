@@ -51,4 +51,10 @@ public class TarefaSteps {
         new CriarTarefasPage().clicarBtnStatusPrincipal();
         //new CriarTarefasPage().clicarBtnAdimitirTarefa();
     }
+
+    public void fecharTarefa(String resolucao, String numeroDuplicado, String anotacao) {
+        new CriarTarefasPage().selecionarResolucao(resolucao);
+        new CriarTarefasPage().escreverAnotacao(anotacao);
+        new CriarTarefasPage().clicarBtnStatusPrincipal();
+    }
 }

@@ -108,22 +108,19 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void fecharTarefa() {
+    public void fecharTarefaResolucaoNaoSeraCorrigida() {
         String resumo = "Resumo "+getDataHoraString();
-        new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
+        new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
         Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
 
         new VerTodasTarefasPage().clicarVerDetalhesTarefa(resumo);
-        new TarefaSteps().atualizarStatusTarefa(resumo, "admitido");
         new CriarTarefasPage().clicarBtnFecharTarefa();
+        new TarefaSteps().fecharTarefa("não será corrigido", "numeroDuplicado", "Anotacao");
 
-        Assert.assertTrue( new CriarTarefasPage().verificarSeExisteTextoNaPagina("Desmarcar como Pegajoso"));
+        Assert.assertEquals("fechado", new CriarTarefasPage().obterStatusTarefa());
     }
 
     /*
-
-
-	 ===============================
 	 - addUmNovoMarcadorATarefa
 	 -atribuirTarefaParaUmUsuario
 	 - clonarTarefa
@@ -134,21 +131,5 @@ public class TarefasTests extends BaseTests {
 	 - acesarImprimirTarefas
 	 - salvarNovoFiltro
 
-
-	  ================================
-
-    @Test
-    public void testesBD() {
-
-        String test = ConexaoBD.statusConection();
-
-        ConexaoBD.getConexaoMySQL();
-
-        String test2 = ConexaoBD.statusConection();
-
-        System.out.print(test);
-        System.out.print(test2);
-
-    }
      */
 }
