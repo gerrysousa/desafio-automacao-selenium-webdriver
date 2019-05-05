@@ -17,7 +17,6 @@ public class MenuTests extends BaseTests {
         new LoginSteps().fazerLogin(loginPadrao,senhaPadrao);
     }
 
-
     @Test
     public void acessarMinhaVisao() {
         new MenuPage().clicaBtnMinhaVisao();
@@ -32,107 +31,95 @@ public class MenuTests extends BaseTests {
         Assert.assertTrue(new VerTodasTarefasPage().verificarSeAcessouVerTarefasPage());
     }
 
-
-  /*
-    private HomePage home;
-    private LoginPage login;
-    private MinhaVisaoPage minhaVisao;
-    private VerTarefasPage verTarefas;
-    private CriarTarefaPage tarefa;
-    private RegistroMudancaPage mudanca;
-    private PlanejamentoPage planejamento;
-    private ResumoPage resumo;
-    private GerenciarPage gerenciar;
-
-
     @Test
     public void acessarCriarTarefas() {
-        home.clicaBotaoCriarTarefas();
+        new MenuPage().clicaBtnCriarTarefas();
 
-        Assert.assertTrue(tarefa.verificarSeAcessouCriarTarefa());
+        Assert.assertTrue(new CriarTarefasPage().verificarSeAcessouCriarTarefa());
     }
 
     @Test
     public void acessarRegistroMudanca() {
-        home.clicaBotaoRegistroDeMudancas();
+        new MenuPage().clicaBtnRegistroDeMudancas();
 
-        Assert.assertTrue(mudanca.verificarSeAcessouRegistroMudanca());
+        Assert.assertTrue(new RegistroDeMudancasPage().verificarSeAcessouRegistroMudanca());
     }
 
     @Test
     public void acessarPlanejamento() {
-        home.clicaBotaoPlanejamento();
+        new MenuPage().clicaBtnPlanejamento();
 
-        Assert.assertTrue(planejamento.verificarSeAcessouPlanejamento());
+        Assert.assertTrue(new PlanejamentoPage().verificarSeAcessouPlanejamento());
     }
 
     @Test
     public void acessarResumo() {
-        home.clicaBotaoResumo();
+        new MenuPage().clicaBtnResumo();
 
-        Assert.assertTrue(resumo.verificarSeAcessouResumo());
+        Assert.assertTrue(new ResumoPage().verificarSeAcessouResumo());
     }
 
     @Test
     public void acessarGerenciar() {
-        home.clicaBotaoGerenciar();
+        new MenuPage().clicaBtnGerenciar();
 
-        Assert.assertTrue(gerenciar.verificarSeAcessouGerenciar());
+        Assert.assertTrue(new GerenciarVisaoGeralPage().verificarSeAcessouGerenciarVisaoGeralPage());
     }
 
     @Test
     public void acessarTarefasAtribuidasAMim() {
-        home.clicaBotaoMinhaVisao();
-        Assert.assertTrue(minhaVisao.verificarSeAcessouMinhaVisao());
-        minhaVisao.acessarTarefasAtribuidasAMim();
+        new MenuPage().clicaBtnMinhaVisao();
+        Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
+        new MinhaVisaoPage().acessarTarefasAtribuidasAMim();
 
-        Assert.assertEquals(home.obterUsuarioLogado(), verTarefas.verificaFiltroAtribuidoA());
+        Assert.assertEquals(new MenuPage().obterUsuarioLogado(), new VerTodasTarefasPage().obterFiltroAtribuidoA());
     }
 
     @Test
     public void acessarTarefasNaoAtribuidas() {
-        home.clicaBotaoMinhaVisao();
-        Assert.assertTrue(verTarefas.verificarSeAcessouVerTarefasPage());
-        minhaVisao.acessarTarefasNaoAtribuidas();
+        new MenuPage().clicaBtnMinhaVisao();
+        Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
+        //Assert.assertTrue(new VerTodasTarefasPage().verificarSeAcessouVerTarefasPage());
+        new MinhaVisaoPage().acessarTarefasNaoAtribuidas();
 
-        Assert.assertEquals("nenhum", verTarefas.verificaFiltroAtribuidoA());
+        Assert.assertEquals("nenhum", new VerTodasTarefasPage().obterFiltroAtribuidoA());
     }
 
     @Test
     public void acessarTarefasRelatadasPorMim() {
-        home.clicaBotaoMinhaVisao();
-        Assert.assertTrue(minhaVisao.verificarSeAcessouMinhaVisao());
-        minhaVisao.acessarTarefasRelatadasPorMim();
+        new MenuPage().clicaBtnMinhaVisao();
+        Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
+        new MinhaVisaoPage().acessarTarefasRelatadasporMim();
 
-        Assert.assertEquals(home.obterUsuarioLogado(), verTarefas.verificaFiltroRelatoPor());
+        Assert.assertEquals(new MenuPage().obterUsuarioLogado(), new VerTodasTarefasPage().obterFiltroRelatoPor());
     }
 
     @Test
     public void acessarTarefasResolvidas() {
-        home.clicaBotaoMinhaVisao();
-        Assert.assertTrue(minhaVisao.verificarSeAcessouMinhaVisao());
-        minhaVisao.acessarTarefasResolvidas();
+        new MenuPage().clicaBtnMinhaVisao();
+        Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
+        new MinhaVisaoPage().acessarTarefasResolvidas();
 
-        Assert.assertEquals("resolvido", verTarefas.verificaFiltroStatus());
+        Assert.assertEquals("resolvido", new VerTodasTarefasPage().obterFiltroStatus());
     }
 
     @Test
     public void acessarTarefasModificadasRecente() {
-        home.clicaBotaoMinhaVisao();
-        Assert.assertTrue(minhaVisao.verificarSeAcessouMinhaVisao());
-        minhaVisao.acessarTarefasModificadasRecente();
+        new MenuPage().clicaBtnMinhaVisao();
+        Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
+        new MinhaVisaoPage().acessarTarefasModificadasRecentemente();
 
-        Assert.assertNotEquals("Não", verTarefas.verificaFiltroPorAtualizacao());
+        Assert.assertNotEquals("Não", new VerTodasTarefasPage().obterFiltroDatadeAtualizacao());
     }
 
     @Test
     public void acessarTarefasMonitoradasPorMim() {
-        home.clicaBotaoMinhaVisao();
-        Assert.assertTrue(minhaVisao.verificarSeAcessouMinhaVisao());
-        minhaVisao.acessarTarefasMonitoradasPorMim();
+        new MenuPage().clicaBtnMinhaVisao();
+        Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
+        new MinhaVisaoPage().acessarTarefasMonitoradasPorMim();
 
-        Assert.assertEquals(home.obterUsuarioLogado(), verTarefas.verificaFiltroMonitoradoPor());
+        Assert.assertEquals(new MenuPage().obterUsuarioLogado(), new VerTodasTarefasPage().obterFiltroMonitoradoPor());
     }
 
-   */
+
 }

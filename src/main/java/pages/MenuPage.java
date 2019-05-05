@@ -33,6 +33,9 @@ public class MenuPage extends BasePage {
     @FindBy(xpath = "//li[@id='dropdown_projects_menu']/a[@class='dropdown-toggle']")
     private WebElement lblProjetoSelecionado;
 
+    @FindBy(xpath = "//span[@class='user-info']")
+    private WebElement lblUsuarioLogado;
+
     //Fim do mapeamento
 
     //Ações da pagina
@@ -67,7 +70,8 @@ public class MenuPage extends BasePage {
     }
 
     public String obterProjetoSelecionado() {
-        String teste = lblProjetoSelecionado.getText();
+        //String teste = lblProjetoSelecionado.getText();
+        String teste = obterTextoDoElemento(lblProjetoSelecionado);
 
         return teste;
     }
@@ -76,5 +80,9 @@ public class MenuPage extends BasePage {
         clicar(lblProjetoSelecionado);
         By linkNomeProjeto = By.linkText(nomeProjeto);
         clicar(linkNomeProjeto);
+    }
+
+    public String obterUsuarioLogado() {
+        return obterTextoDoElemento(lblUsuarioLogado);
     }
 }

@@ -6,17 +6,23 @@ import org.openqa.selenium.support.FindBy;
 
 public class MinhaVisaoPage extends BasePage {
     //Mapeamento de elementoe
-/*    @FindBy(id = "username")
-    private WebElement txtEmail;
+    @FindBy(linkText = "Atribuídos a Mim (não resolvidos)")
+    private WebElement linkAtribuidosAMim;
 
-    @FindBy(id = "password")
-    private WebElement txtSenha;
+    @FindBy(linkText = "Não Atribuídos")
+    private WebElement linkNaoAtribuidos;
 
-    @FindBy(xpath = "//input[@value='Entrar']")
-    private WebElement btnLogin;
+    @FindBy(linkText = "Relatados por Mim")
+    private WebElement linkRelatadosporMim;
 
- */
+    @FindBy(linkText = "Resolvidos")
+    private WebElement linkResolvidos;
 
+    @FindBy(linkText = "Modificados Recentemente (30 Dias)")
+    private WebElement linkModificadosRecentemente;
+
+    @FindBy(linkText = "Monitorados por Mim")
+    private WebElement linkMonitoradosporMim;
     //Fim do mapeamento
 
     //Ações da pagina
@@ -24,6 +30,30 @@ public class MinhaVisaoPage extends BasePage {
     public boolean verificarSeAcessouMinhaVisao() {
         boolean existe =  verificarSeExisteTextoNoTituloDaPagina("Minha Visão - MantisBT");
         return existe;
+    }
+
+    public void acessarTarefasAtribuidasAMim() {
+        clicar(linkAtribuidosAMim);
+    }
+
+    public void acessarTarefasNaoAtribuidas() {
+        clicar(linkNaoAtribuidos);
+    }
+
+    public void acessarTarefasRelatadasporMim() {
+        clicar(linkRelatadosporMim);
+    }
+
+    public void acessarTarefasResolvidas() {
+        clicar(linkResolvidos);
+    }
+
+    public void acessarTarefasModificadasRecentemente() {
+        clicar(linkModificadosRecentemente);
+    }
+
+    public void acessarTarefasMonitoradasPorMim() {
+        clicar(linkMonitoradosporMim);
     }
     //Fim ações
 }

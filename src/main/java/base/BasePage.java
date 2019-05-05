@@ -184,6 +184,10 @@ public class BasePage {
         return existe;
     }
 
+    public String obterTextoDoElemento(WebElement element){
+        return element.getText();
+    }
+
 //    public void Assert(String alerta) {
 //        boolean existe = getDriver().getTitle().contains(alerta);
 //
