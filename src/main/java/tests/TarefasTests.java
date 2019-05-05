@@ -24,7 +24,7 @@ public class TarefasTests extends BaseTests {
         Assert.assertTrue( new CriarTarefasPage().verificarSeAcessouCriarTarefa());
     }
     @Test
-    public void adicionarTarefa() {
+    public void Test_adicionarTarefa() {
         String resumo = "Resumo "+getDataHoraString();
         /* "[Todos os Projetos] General","sempre","texto","alta","administrator","resumo da tarefa","Descricao da tarefa","passoss","info","tag 1","Marcador 01","publico"*/
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
@@ -35,7 +35,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoResumoObrigatorio() {
+    public void Test_validarCampoResumoObrigatorio() {
         new CriarTarefasPage().clicarBotaoNovaTarefa();
 
         Assert.assertEquals("Preencha este campo.", new CriarTarefasPage().validarCampoResumoObrigatorio());
@@ -56,7 +56,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void atualizarResumoTarefa() {
+    public void Test_atualizarResumoTarefa() {
         String resumo = "Resumo "+getDataHoraString();
         /* "[Todos os Projetos] General","sempre","texto","alta","administrator","resumo da tarefa","Descricao da tarefa","passoss","info","tag 1","Marcador 01","publico"*/
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
@@ -72,7 +72,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void atualizarStatusTarefaParaAdmitido() {
+    public void Test_atualizarStatusTarefaParaAdmitido() {
         String resumo = "Resumo "+getDataHoraString();
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
         Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
@@ -84,7 +84,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void monitorarUmaTarefa() {
+    public void Test_monitorarUmaTarefa() {
         String resumo = "Resumo "+getDataHoraString();
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
         Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
@@ -96,7 +96,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void marcarTarefaComoPegajosa() {
+    public void Test_marcarTarefaComoPegajosa() {
         String resumo = "Resumo "+getDataHoraString();
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
         Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
@@ -108,7 +108,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void fecharTarefaResolucaoNaoSeraCorrigida() {
+    public void Test_fecharTarefaResolucaoNaoSeraCorrigida() {
         String resumo = "Resumo "+getDataHoraString();
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
         Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
@@ -121,7 +121,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void apagarTarefa() {
+    public void Test_apagarTarefa() {
         String resumo = "Resumo "+getDataHoraString();
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
         Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
@@ -134,7 +134,7 @@ public class TarefasTests extends BaseTests {
     }
 
     @Test
-    public void adicionarUmNovoMarcadorATarefa() {
+    public void Test_adicionarUmNovoMarcadorATarefa() {
         String resumo = "Resumo "+getDataHoraString();
         new TarefaSteps().cadastrarTarefa("[Todos os Projetos] General","sempre","texto","alta","administrator",resumo,"Descricao da tarefa","passoss","info","tag03","marcador01","publico", false);
         Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));

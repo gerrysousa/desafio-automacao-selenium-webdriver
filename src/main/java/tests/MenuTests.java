@@ -18,56 +18,56 @@ public class MenuTests extends BaseTests {
     }
 
     @Test
-    public void acessarMinhaVisao() {
+    public void Test_acessarMinhaVisao() {
         new MenuPage().clicaBtnMinhaVisao();
 
         Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
     }
 
     @Test
-    public void acessarVerTarefas() {
+    public void Test_acessarVerTarefas() {
         new MenuPage().clicaBtnVerTarefas();
 
         Assert.assertTrue(new VerTodasTarefasPage().verificarSeAcessouVerTarefasPage());
     }
 
     @Test
-    public void acessarCriarTarefas() {
+    public void Test_acessarCriarTarefas() {
         new MenuPage().clicaBtnCriarTarefas();
 
         Assert.assertTrue(new CriarTarefasPage().verificarSeAcessouCriarTarefa());
     }
 
     @Test
-    public void acessarRegistroMudanca() {
+    public void Test_acessarRegistroMudanca() {
         new MenuPage().clicaBtnRegistroDeMudancas();
 
         Assert.assertTrue(new RegistroDeMudancasPage().verificarSeAcessouRegistroMudanca());
     }
 
     @Test
-    public void acessarPlanejamento() {
+    public void Test_acessarPlanejamento() {
         new MenuPage().clicaBtnPlanejamento();
 
         Assert.assertTrue(new PlanejamentoPage().verificarSeAcessouPlanejamento());
     }
 
     @Test
-    public void acessarResumo() {
+    public void Test_acessarResumo() {
         new MenuPage().clicaBtnResumo();
 
         Assert.assertTrue(new ResumoPage().verificarSeAcessouResumo());
     }
 
     @Test
-    public void acessarGerenciar() {
+    public void Test_acessarGerenciar() {
         new MenuPage().clicaBtnGerenciar();
 
         Assert.assertTrue(new GerenciarVisaoGeralPage().verificarSeAcessouGerenciarVisaoGeralPage());
     }
 
     @Test
-    public void acessarTarefasAtribuidasAMim() {
+    public void Test_acessarTarefasAtribuidasAMim() {
         new MenuPage().clicaBtnMinhaVisao();
         Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
         new MinhaVisaoPage().acessarTarefasAtribuidasAMim();
@@ -76,7 +76,7 @@ public class MenuTests extends BaseTests {
     }
 
     @Test
-    public void acessarTarefasNaoAtribuidas() {
+    public void Test_acessarTarefasNaoAtribuidas() {
         new MenuPage().clicaBtnMinhaVisao();
         Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
         //Assert.assertTrue(new VerTodasTarefasPage().verificarSeAcessouVerTarefasPage());
@@ -86,7 +86,7 @@ public class MenuTests extends BaseTests {
     }
 
     @Test
-    public void acessarTarefasRelatadasPorMim() {
+    public void Test_acessarTarefasRelatadasPorMim() {
         new MenuPage().clicaBtnMinhaVisao();
         Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
         new MinhaVisaoPage().acessarTarefasRelatadasporMim();
@@ -95,7 +95,7 @@ public class MenuTests extends BaseTests {
     }
 
     @Test
-    public void acessarTarefasResolvidas() {
+    public void Test_acessarTarefasResolvidas() {
         new MenuPage().clicaBtnMinhaVisao();
         Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
         new MinhaVisaoPage().acessarTarefasResolvidas();
@@ -104,7 +104,7 @@ public class MenuTests extends BaseTests {
     }
 
     @Test
-    public void acessarTarefasModificadasRecente() {
+    public void Test_acessarTarefasModificadasRecente() {
         new MenuPage().clicaBtnMinhaVisao();
         Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
         new MinhaVisaoPage().acessarTarefasModificadasRecentemente();
@@ -113,7 +113,7 @@ public class MenuTests extends BaseTests {
     }
 
     @Test
-    public void acessarTarefasMonitoradasPorMim() {
+    public void Test_acessarTarefasMonitoradasPorMim() {
         new MenuPage().clicaBtnMinhaVisao();
         Assert.assertTrue(new MinhaVisaoPage().verificarSeAcessouMinhaVisao());
         new MinhaVisaoPage().acessarTarefasMonitoradasPorMim();

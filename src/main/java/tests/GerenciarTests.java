@@ -21,7 +21,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void deveAcessarGerenciar() {
+    public void Test_deveAcessarGerenciar() {
         new MenuPage().clicaBtnGerenciar();
 
         Assert.assertTrue(new GerenciarVisaoGeralPage().verificarSeAcessouGerenciarVisaoGeralPage());
@@ -29,7 +29,7 @@ public class GerenciarTests extends BaseTests {
 
     //=========================
     @Test
-    public void adicionarCategoria() {
+    public void Test_adicionarCategoria() {
         String nomeCategotia = "Categoria "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
@@ -41,7 +41,7 @@ public class GerenciarTests extends BaseTests {
     }
 
   @Test
-    public void adicionarProjeto() {
+    public void Test_adicionarProjeto() {
         String nomeProjeto = "Projeto "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
@@ -56,7 +56,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void adicionarUsuario() {
+    public void Test_adicionarUsuario() {
         String aux = getDataHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarUsuarios();
@@ -75,7 +75,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void adicionarMarcadores() {
+    public void Test_adicionarMarcadores() {
         String aux = getDataHoraString();
         new GerenciarVisaoGeralPage().clicarTabGerenciarMarcadores();
         new GerenciarMarcadoresPage().escreverNomeMarcador("Marcador "+aux);
@@ -86,7 +86,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoNomeProjetoObrigatorio() {
+    public void Test_validarCampoNomeProjetoObrigatorio() {
         String nomeProjeto = "Projeto "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
@@ -98,7 +98,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void atualizarNomeDoProjeto() {
+    public void Test_atualizarNomeDoProjeto() {
         String nomeProjeto = "Projeto "+getHoraString();
         String descricao = "Descrição do "+nomeProjeto;
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
@@ -115,7 +115,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoNomeMarcadorObrigatorio() {
+    public void Test_validarCampoNomeMarcadorObrigatorio() {
         String aux = getDataHoraString();
         new GerenciarVisaoGeralPage().clicarTabGerenciarMarcadores();
         new GerenciarMarcadoresPage().escreverDescricaoMarcador("Descricao "+aux);
@@ -125,7 +125,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void atualizarNomeDoMarcador() {
+    public void Test_atualizarNomeDoMarcador() {
         String nomeMarcarcor = "Marcador "+getDataHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarMarcadores();
@@ -151,7 +151,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void deveApagarMarcador() {
+    public void Test_deveApagarMarcador() {
         String nomeMarcarcor = "Marcador "+getDataHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarMarcadores();
@@ -171,7 +171,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoNomeUsuarioObrigatorio() {
+    public void Test_validarCampoNomeUsuarioObrigatorio() {
         String aux = getDataHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarUsuarios();
@@ -188,7 +188,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void atualizarUsuario() {
+    public void Test_atualizarUsuario() {
         String nomeUsuario = "user"+getDataHoraString();
         new GerenciarVisaoGeralPage().clicarTabGerenciarUsuarios();
         new GerenciarUsuariosPage().clicarBotaoAddNovaConta();
@@ -221,7 +221,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoNomeCategoriaObrigatorio() {
+    public void Test_validarCampoNomeCategoriaObrigatorio() {
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
         new GerenciarProjetoPage().clicarBotaoAddCatergoria();
 
@@ -229,7 +229,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void atualizarCategoria() {
+    public void Test_atualizarCategoria() {
         String nomeCategotia = "Categoria "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
@@ -251,7 +251,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void apagarCategoria() {
+    public void Test_apagarCategoria() {
         String nomeCategotia = "Categoria "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
@@ -270,7 +270,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void adicionarPerfilGlobal() {
+    public void Test_adicionarPerfilGlobal() {
         String aux = "Perfil "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarPerfisGlobais();
@@ -284,7 +284,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarApagarCategoriaJaUtilizada() {
+    public void Test_validarApagarCategoriaJaUtilizada() {
       /*  String nomeCategotia = "Categoria "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarProjetos();
@@ -304,7 +304,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoPlataformaObrigatorio() {
+    public void Test_validarCampoPlataformaObrigatorio() {
         String aux = "Perfil "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarPerfisGlobais();
@@ -317,7 +317,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoSOObrigatorio() {
+    public void Test_validarCampoSOObrigatorio() {
         String aux = "Perfil "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarPerfisGlobais();
@@ -331,7 +331,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void validarCampoVersaoSOObrigatorio() {
+    public void Test_validarCampoVersaoSOObrigatorio() {
         String aux = "Perfil "+getHoraString();
 
         new GerenciarVisaoGeralPage().clicarTabGerenciarPerfisGlobais();
@@ -345,7 +345,7 @@ public class GerenciarTests extends BaseTests {
     }
 
     @Test
-    public void mudarDeProjeto() {
+    public void Test_mudarDeProjeto() {
         //To do : Criar projeto 1
         //To do : selecionar projeto 1
         String projetoSelecionado = new MenuPage().obterProjetoSelecionado();

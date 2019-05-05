@@ -14,7 +14,7 @@ import static utils.Constantes.*;
 public class LoginTests extends BaseTests {
 
     @Test (priority = 1, description = "Testa login com sucesso")
-    public void deveLogarComSucesso() throws InterruptedException{
+    public void Test_deveLogarComSucesso() throws InterruptedException{
         //Ações do Teste
         new LoginSteps().fazerLogin(loginPadrao,senhaPadrao);
 
@@ -23,7 +23,7 @@ public class LoginTests extends BaseTests {
     }
 
     @Test (priority = 1, description = "Testa login sem colocar email ou  nome")
-    public void deveValidarLoginSemUsername() {
+    public void Test_deveValidarLoginSemUsername() {
         //Ações do Teste
         new LoginPage().clicarBotaoLogin();
 
@@ -33,7 +33,7 @@ public class LoginTests extends BaseTests {
     }
 
     @Test(priority = 1, description = "Testa login sem colocar a senha")
-    public void deveValidarLoginSemSenha() {
+    public void Test_deveValidarLoginSemSenha() {
         //Ações do Teste
         new LoginPage().preencherUsername("administrator");
         new LoginPage().clicarBotaoLogin();
@@ -46,7 +46,7 @@ public class LoginTests extends BaseTests {
     }
 
     @Test(priority = 1, description = "Testa login com senha errada")
-    public void deveValidarLoginComSenhaInvalida() {
+    public void Test_deveValidarLoginComSenhaInvalida() {
         //Ações do Teste
         new LoginPage().preencherUsername("administrator");
         new LoginPage().clicarBotaoLogin();
@@ -59,7 +59,7 @@ public class LoginTests extends BaseTests {
     }
 
     @Test(priority = 1, description = "Testa login, verifica se acessou a pagina de recuperação de senha")
-    public void deveAcessarRecuperarSenha() {
+    public void Test_deveAcessarRecuperarSenha() {
         new LoginPage().preencherUsername(loginPadrao);
         new LoginPage().clicarBotaoLogin();
         new LoginPage().clicarLinkPerdeuSenha();
