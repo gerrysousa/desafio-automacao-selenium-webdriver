@@ -1,0 +1,3 @@
+categoria;frequencia;gravidade;prioridade;atribuido;resumoTarefa;descricaoTarefa;passosTarefa;informacaoTarefa;tagTarefa;marcadorTarefa;visibilidade
+[Todos os Projetos] General;sempre;texto;alta;administrator;resumo da tarefa1;Descricao da tarefa;passoss;info;tag 1;Marcador 01;publico
+[Todos os Projetos] General;sempre;texto;alta;administrator;resumo da tarefa2;Descricao da tarefa;passoss;info;tag 1;Marcador 01;publico
