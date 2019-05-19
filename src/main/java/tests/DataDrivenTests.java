@@ -4,8 +4,10 @@ import base.BaseTests;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.*;
+import utils.ExcelUtils;
 import utils.Steps.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -14,23 +16,21 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
+
+import static base.DriverFactory.getDriver;
+import static utils.Constantes.pathProjeto;
+
+
+import static base.DriverFactory.getDriver;
 import static utils.Constantes.*;
 
 public class DataDrivenTests extends BaseTests {
 
-    public List<String[]> lerDadosCSV() throws IOException {
-        int count = 0;
-        String file = pathProjeto+"/src/main/resources/tarefaDDT.csv";
-        List<String[]> content = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                content.add(line.split(";"));
-            }
-        } catch (FileNotFoundException e) {
-            //Some error logging
-        }
-        return content;
+    @DataProvider
+    public Object[][] obterTarefas() throws Exception{
+        Object[][] testObjArray = ExcelUtils.getTableArray(pathProjeto+"/src/main/resources/TestData.xlsx","tarefas");
+        return (testObjArray);
     }
 
     @BeforeMethod
@@ -38,32 +38,40 @@ public class DataDrivenTests extends BaseTests {
         new LoginSteps().fazerLogin(loginPadrao,senhaPadrao);
     }
 
-    @Test
-    public void Test_DataDrivenTestCadastrarTarefas() throws IOException {
-
-        List<String[]> dadosCSV =  lerDadosCSV();
-
-        int i=0;
-        for (String[] registro : dadosCSV) {
-            String categoria	    = registro[i];
-            String frequencia	    = registro[i+1];
-            String gravidade	    = registro[i+2];
-            String prioridade	    = registro[i+3];
-            String atribuido	    = registro[i+4];
-            String resumoTarefa	    = registro[i+5];
-            String descricaoTarefa	= registro[i+6];
-            String passosTarefa	    = registro[i+7];
-            String informacaoTarefa	= registro[i+8];
-            String tagTarefa	    = registro[i+9];
-            String marcadorTarefa	= registro[i+10];
-            String visibilidade     = registro[i+11];
-
+    @Test(dataProvider="obterTarefas")
+    public void Test_DataDrivenTestCadastrarTarefas(String categoria, String frequencia, String gravidade,String prioridade,
+                                                    String atribuido,String resumoTarefa,String descricaoTarefa,String passosTarefa,String informacaoTarefa,
+                                                    String tagTarefa,String marcadorTarefa,String visibilidade) throws IOException {
             new MenuPage().clicaBtnCriarTarefas();
             Assert.assertTrue( new CriarTarefasPage().verificarSeAcessouCriarTarefa());
             new TarefaSteps().cadastrarTarefa(categoria, frequencia, gravidade, prioridade, atribuido, resumoTarefa, descricaoTarefa, passosTarefa, informacaoTarefa, tagTarefa, marcadorTarefa, visibilidade, false);
             Assert.assertTrue(new MenuPage().procurarMensagemAlertaSucesso("Operação realizada com sucesso."));
-
-        }
-
     }
+
+    @Test(dataProvider="Authentication")
+    public void Registration_data(String sUserName,String sPassword)throws  Exception{
+  /*
+        getDriver().findElement(By.xpath(".//*[@id='account']/a")).click();
+        getDriver().findElement(By.id("log")).sendKeys(sUserName);
+        System.out.println(sUserName);
+        getDriver().findElement(By.id("pwd")).sendKeys(sPassword);
+        System.out.println(sPassword);
+        getDriver().findElement(By.id("login")).click();
+        System.out.println(" Login Successfully, now it is the time to Log Off buddy.");
+        getDriver().findElement(By.xpath(".//*[@id='account_logout']/a")).click();
+    */
+        new LoginPage().preencherUsername(sUserName);
+        new LoginPage().clicarBotaoLogin();
+        new LoginPage().preencherSenha(sPassword);
+        new LoginPage().clicarBotaoLogin();
+
+        Assert.assertTrue(getDriver().getTitle().contains("Minha Visão - MantisBT"));
+    }
+
+    @DataProvider
+    public Object[][] Authentication() throws Exception{
+        Object[][] testObjArray = ExcelUtils.getTableArray(pathProjeto+"/src/main/resources/TestDataL.xlsx","loginSheet");
+        return (testObjArray);
+    }
+
 }
