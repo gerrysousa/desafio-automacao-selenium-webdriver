@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
     @FindBy(id = "password")
     private WebElement txtSenha;
 
-    @FindBy(xpath = "//input[@value='Entrar']")
+    @FindBy(xpath = "//input[@type='submit']")
     private WebElement btnLogin;
 
     @FindBy(linkText = "Perdeu a sua senha?")

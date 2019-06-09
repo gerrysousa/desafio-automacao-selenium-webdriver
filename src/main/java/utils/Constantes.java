@@ -7,7 +7,7 @@ public class Constantes {
 
     public static String urlBase= "https://mantis.glaucia.base2.com.br/login_page.php";
     public static int defaultTimeout= 30;
-    public static boolean driverLocal= true;
+    public static boolean driverLocal= false;
     public static String driverRemoteDefault= "chrome";//firefox, iexplore
 
     public static String loginPadrao= "administrator";

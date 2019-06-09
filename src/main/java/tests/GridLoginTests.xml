@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="GRID SAMPLE TEST" thread-count="2">
     <test name="Grid Testes com execução em serie no navegador CHROME ">
         <parameter name ="myBrowser" value="chrome"/>
@@ -14,7 +15,7 @@
         </classes>
     </test>
 
-    <!--test name="GRID TEST WITH SERIAL EXECTION WITH BROWSER IE">
+    <!--Grid Testes com execução em serie no navegador IE">
         <parameter name ="myBrowser" value="iexplore"/>
         <classes>
             <class name ="tests.GridTest"/>
@@ -38,7 +39,7 @@
     </classes>
 </test>
 
-<test name="GRID TEST WITH SERIAL EXECTION WITH BROWSER IE">
+<test name="Grid Testes com execução pararela no navegador IE">
     <parameter name ="myBrowser" value="iexplore"/>
     <classes>
         <class name ="tests.GridTest"/>

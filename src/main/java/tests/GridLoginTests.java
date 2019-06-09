@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
 import java.net.MalformedURLException;
 
@@ -22,11 +23,11 @@ public class GridLoginTests extends BaseTests {
     @Test(priority = 1, description = "Testa login com sucesso Utilizando Selenium Grid")
     public void Test_LoginSeleniumGrid() throws InterruptedException{
         Assert.assertTrue(getDriver().getTitle().contains("MantisBT"));
-        getDriver().findElement(By.id("username")).sendKeys("administrator");
-        getDriver().findElement(By.xpath("//input[@type='submit']")).click();
-        Thread.sleep(2000);
-        getDriver().findElement(By.id("password")).sendKeys("duarte");
-        getDriver().findElement(By.xpath("//input[@type='submit']")).click();
-        Assert.assertTrue(getDriver().getTitle().contains("Minha Visão - MantisBT"));
+        new LoginPage().preencherUsername("administrator");
+        new LoginPage().clicarBotaoLogin();
+        new LoginPage().preencherSenha("duarte");
+        new LoginPage().clicarBotaoLogin();
+        System.out.print("titulo é = "+getDriver().getTitle());
+        Assert.assertTrue(getDriver().getTitle().contains("- MantisBT"));
     }
 }
