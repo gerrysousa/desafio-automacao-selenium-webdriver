@@ -19,7 +19,7 @@ public class LoginTests extends BaseTests {
         new LoginSteps().fazerLogin(loginPadrao,senhaPadrao);
 
         //Verificação do Teste
-        Assert.assertTrue(new MenuPage().verificarSeExisteTextoNoTituloDaPagina("Minha Visão - MantisBT"));
+        Assert.assertTrue(new MenuPage().verificarSeExisteTextoNoTituloDaPagina("- MantisBT"));//"Minha Visão - MantisBT"
     }
 
     @Test (priority = 1, description = "Testa login sem colocar email ou  nome")
