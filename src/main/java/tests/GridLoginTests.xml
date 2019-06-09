@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="GRID SAMPLE TEST" thread-count="2">
+    <test name="Grid Testes com execução em serie no navegador CHROME ">
+        <parameter name ="myBrowser" value="chrome"/>
+        <classes>
+            <class name ="tests.GridLoginTests"/>
+        </classes>
+    </test>
+
+    <test name="Grid Testes com execução em serie no navegador FIREFOX ">
+        <parameter name ="myBrowser" value="firefox"/>
+        <classes>
+            <class name ="tests.GridLoginTests"/>
+        </classes>
+    </test>
+
+    <!--test name="GRID TEST WITH SERIAL EXECTION WITH BROWSER IE">
+        <parameter name ="myBrowser" value="iexplore"/>
+        <classes>
+            <class name ="tests.GridTest"/>
+        </classes>
+    </test-->
+</suite>
+
+<!--?xml version="1.0" encoding="UTF-8"?>
+<suite name="GRID SAMPLE TEST" parllel="tests" thread-count="3">
+<test name="Grid Testes com execução pararela no navegador CHROME ">
+    <parameter name ="myBrowser" value="chrome"/>
+    <classes>
+        <class name ="tests.GridLoginTests"/>
+    </classes>
+</test>
+
+<test name="Grid Testes com execução pararela no navegador FIREFOX ">
+    <parameter name ="myBrowser" value="firefox"/>
+    <classes>
+        <class name ="tests.GridLoginTests"/>
+    </classes>
+</test>
+
+<test name="GRID TEST WITH SERIAL EXECTION WITH BROWSER IE">
+    <parameter name ="myBrowser" value="iexplore"/>
+    <classes>
+        <class name ="tests.GridTest"/>
+    </classes>
+</test>
+</suite -->
