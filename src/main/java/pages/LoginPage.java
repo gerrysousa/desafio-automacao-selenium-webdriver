@@ -1,8 +1,15 @@
 package pages;
 
 import base.BasePage;
+import base.DriverFactory;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Wait;
+
+import static base.DriverFactory.getDriver;
+import static utils.Constantes.loginPadrao;
+import static utils.Constantes.senhaPadrao;
 
 public class LoginPage extends BasePage {
 
@@ -42,6 +49,30 @@ public class LoginPage extends BasePage {
     public String retornaMensagemDoAlerta() {
 
         return "";
+    }
+    //Sem refatorar===============================================
+    public void preencherLoginViaJavaScript(String username)
+    {
+//        IJavaScriptExecutor jse = (IJavaScriptExecutor) DriverFactory.INSTANCE;
+//        jse.ExecuteScript("arguments[0].value='"+ ConfigurationManager.AppSettings["login"].ToString()+"';", InputLogin);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].value='" + username + "';",txtUsername);
+
+    }
+
+
+    public void preencherSenhaViaJavaScript(String senha)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].value='" + senha + "';",txtSenha);
+    }
+
+    public void clicarBotaoLoginViaJavaScript()
+    {
+       // wait.ElementToBeClickable(BotaoEntrar);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].click();", btnLogin);
+
     }
 
     //Fim ações
