@@ -8,7 +8,7 @@
         <classes>
             <class name="tests.LoginTests"></class>
         </classes>
-    </test-->
+    </test>
 
     <parameter name="environment" value="grid"></parameter>
     <test name="testes no Jenkins-Firefox Local">
