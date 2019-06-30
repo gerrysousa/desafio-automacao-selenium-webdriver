@@ -10,12 +10,12 @@
         </classes>
     </test>
 
-    <parameter name="environment" value="grid"></parameter>
+    <!--parameter name="environment" value="grid"></parameter>
     <test name="testes no Jenkins-Firefox Local">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="tests.LoginTests"></class>
         </classes>
-    </test>
+    </test-->
 
 </suite>
