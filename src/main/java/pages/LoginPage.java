@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement btnLogin;
 
-    @FindBy(linkText = "Perdeu a sua senha?")
+    @FindBy(xpath = "//a[@href]")
     private WebElement linkPerdeuSenha;
 
     @FindBy(xpath = "//div[@class='alert alert-danger']")
