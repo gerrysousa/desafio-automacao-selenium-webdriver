@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--suite name="PositiveTestSuite" verbose="1" parallel="tests" thread-count="2"-->
+<suite name="Teste no jenkins" verbose="1" thread-count="2">
+
+    <parameter name="environment" value="grid"></parameter>
+    <test name="testes no Jenkins-Chrome Local">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="tests.LoginTests"></class>
+        </classes>
+    </test-->
+
+    <parameter name="environment" value="grid"></parameter>
+    <test name="testes no Jenkins-Firefox Local">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="tests.LoginTests"></class>
+        </classes>
+    </test>
+
+</suite>
