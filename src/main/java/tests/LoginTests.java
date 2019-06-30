@@ -66,7 +66,7 @@ public class LoginTests extends BaseTests {
         new LoginPage().clicarBotaoLogin();
         new LoginPage().clicarLinkPerdeuSenha();
 
-        Assert.assertTrue(new RecuperarSenhaPage().verificarSeExisteTextoNaPagina("Reajuste de Senha"));
+        Assert.assertTrue(new RecuperarSenhaPage().verificarSeAcessouPaginaEsqueceuSenha());
     }
 
 

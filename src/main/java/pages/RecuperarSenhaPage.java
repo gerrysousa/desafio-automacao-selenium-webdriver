@@ -14,6 +14,10 @@ public class RecuperarSenhaPage extends BasePage {
 
     @FindBy(xpath = "//input[@value='Enviar']")
     private WebElement btnEnviar;
+
+    @FindBy(id = "lost-password-form")
+    private WebElement dsfds;
+
     //Fim do mapeamento
 
     //Ações da pagina
@@ -29,6 +33,9 @@ public class RecuperarSenhaPage extends BasePage {
         clicar(btnEnviar);
     }
 
+    public boolean verificarSeAcessouPaginaEsqueceuSenha() {
+        return  verificarSeExisteTextoNaPagina("lost-password-form");
+    }
 
     //Fim ações
 }
