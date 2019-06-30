@@ -26,6 +26,8 @@ public class LoginPage extends BasePage {
     @FindBy(linkText = "Perdeu a sua senha?")
     private WebElement linkPerdeuSenha;
 
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    private WebElement msgAlerta;
 
     //Fim do mapeamento
 
@@ -50,7 +52,7 @@ public class LoginPage extends BasePage {
 
         return "";
     }
-    //Sem refatorar===============================================
+
     public void preencherLoginViaJavaScript(String username)
     {
 //        IJavaScriptExecutor jse = (IJavaScriptExecutor) DriverFactory.INSTANCE;
@@ -75,5 +77,9 @@ public class LoginPage extends BasePage {
 
     }
 
+
+    public boolean procuraMensagemAlerta(String alerta) {
+        return verificarSeExisteTextoNoElemento(msgAlerta, alerta);
+    }
     //Fim ações
 }

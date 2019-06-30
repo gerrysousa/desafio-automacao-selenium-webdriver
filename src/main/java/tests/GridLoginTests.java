@@ -10,14 +10,14 @@ import pages.LoginPage;
 
 import java.net.MalformedURLException;
 
-import static base.DriverFactory.createRemoteDrive;
+import static base.DriverFactory.createDriverGrid;
 import static base.DriverFactory.getDriver;
 
 public class GridLoginTests extends BaseTests {
     @BeforeTest
     @Parameters("myBrowser")
     public void setup(String myBrowser) throws MalformedURLException {
-        createRemoteDrive(myBrowser);
+       // createDriverGrid(myBrowser);
     }
 
     @Test(priority = 1, description = "Testa login com sucesso Utilizando Selenium Grid")

@@ -9,12 +9,14 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Constantes;
-
 import java.util.concurrent.TimeUnit;
-
 import static base.DriverFactory.getDriver;
-import static org.openqa.selenium.remote.ErrorCodes.TIMEOUT;
-import static utils.Constantes.urlBase;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
+import static java.nio.charset.StandardCharsets.UTF_16;
+import static java.nio.charset.StandardCharsets.UTF_16BE;
+import static java.nio.charset.StandardCharsets.US_ASCII;
+
 
 public class BasePage {
     private static ExtentTest log;
@@ -166,19 +168,28 @@ public class BasePage {
 //===========Precisa ser Refatorado================
 
     public boolean verificarSeExisteTextoNaPagina(String texto) {
+        log.info("Verifica se existe o texto na pagina, com o valor: '"+texto+"'");
         boolean existe = getDriver().getPageSource().contains(texto);
 
         return existe;
     }
 
     public boolean verificarSeExisteTextoNoElemento(WebElement element, String alerta) {
-        String teste =element.getText();
-        boolean existe = element.getText().contains(alerta);
+        log.info("Verifica se existe o texto no elemento:'"+element+" com o valor: '"+alerta+"'");
+        String text = element.getText();
+        log.info("Texto encontrado:"+text);
+        boolean existe = text.contains(alerta);
+         if (existe==false){
+             String alerta_convertido = new String(text.getBytes(), UTF_8);
+             log.info("Texto  procurado Convertido para UTF-8: "+alerta_convertido);
+              existe = element.getText().contains(alerta_convertido);
+         }
 
         return existe;
     }
 
     public boolean verificarSeExisteTextoNoTituloDaPagina(String texto) {
+        log.info("Verifica se existe o texto no Titulo da pagina, com o valor: '"+texto+"'");
         boolean existe = getDriver().getTitle().contains(texto);
 
         return existe;

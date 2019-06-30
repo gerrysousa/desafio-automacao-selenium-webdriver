@@ -28,8 +28,8 @@ public class LoginTests extends BaseTests {
         new LoginPage().clicarBotaoLogin();
 
         //Verificação do Teste
-        Assert.assertTrue(new LoginPage().verificarSeExisteTextoNaPagina(
-                "Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
+        Assert.assertTrue(new LoginPage().procuraMensagemAlerta(
+                "Sua conta pode estar desativada ou bloqueada ou o nome"));
     }
 
     @Test(priority = 1, description = "Testa login sem colocar a senha")
@@ -41,8 +41,9 @@ public class LoginTests extends BaseTests {
         new LoginPage().clicarBotaoLogin();
 
         //Verificação do Teste
-        Assert.assertTrue(new LoginPage().verificarSeExisteTextoNaPagina(
-                "Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
+        Assert.assertTrue(new LoginPage().procuraMensagemAlerta(
+                "Sua conta pode estar desativada ou bloqueada ou o nome"));
+        //"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
     }
 
     @Test(priority = 1, description = "Testa login com senha errada")
@@ -54,8 +55,9 @@ public class LoginTests extends BaseTests {
         new LoginPage().clicarBotaoLogin();
 
         //Verificação do Teste
-        Assert.assertTrue(new LoginPage().verificarSeExisteTextoNaPagina(
-                "Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
+        Assert.assertTrue(new LoginPage().procuraMensagemAlerta(
+                "Sua conta pode estar desativada ou bloqueada ou o nome"));
+        //"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos."));
     }
 
     @Test(priority = 1, description = "Testa login, verifica se acessou a pagina de recuperação de senha")
